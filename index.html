@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles\styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        
+    <title>FlyNow!</title>
+</head>
+<body>
+<header>
+    <nav class="menu">
+        <section class="menu-izquierda">
+          <a href="index.html"><img class="logo"  src="images\logo.png" alt="logo" height="35"></a>
+        </section>
+
+        <section class="menu-medio">
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-icono-hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="pages/vuelos.html">Vuelos</a></li>
+            <li><a href="pages/ofertas.html">Ofertas</a></li>
+            <li><a href="pages/contacto.html">Contacto</a></li>
+            <li><a href="pages/MiCuenta.html">Reservas</a></li>
+            <li><a href="pages/perfil.html">Perfil</a></li>
+        </ul>
+        </section>
+
+        <section class="menu-derecha">
+        
+            
+            <details class="iniciar-sesion">
+
+                <summary>
+                    ¡Hola!
+                </summary>
+
+                <a href="../index.html" class="cerrar-sesion">
+                    Cerrar sesión
+                </a>
+
+            </details>
+
+            <a href="pages/InicioSesion.html">
+                <img class="usuario" src="images/usuario.png" alt="usuario" width="30">
+            </a>
+        </section>
+    </nav>
+</header>
+<main>
+    <section class="main-texto">
+        <p class="parrafo-1">Tu próximo destino</p>
+        <p class="parrafo-2">te está esperando</p>
+        <p class="parrafo-3">Buscá vuelos rápidos y al mejor precio.</p>
+    </section>
+
+    <section class="busqueda">
+        <p id="mensajeDeError"></p>
+        <form  id="form-busqueda" >
+
+        <div class="opcion-1">
+      <label><input type="radio" name="tipo"> Ida y vuelta</label>
+      </div>
+      <div class="opcion-2">
+      <label><input type="radio" name="tipo"> Solo ida</label>
+      </div>
+
+        <div class="opcion-3">
+            <label for="origen">Origen</label>
+      <input type="text" placeholder="Origen" name="origen" id="origen">
+       </div>
+
+       <div class="opcion-4">
+       <label for="destino">Destino</label>
+        <input type="text" placeholder="Destino" name="destino" id="destino">
+        </div>
+        
+        <div class="opcion-5">
+            <label for="fecha-ida">Fecha ida</label>
+      <input type="date" name= "fecha-ida" id="fecha-ida" max="2027-12-31">
+
+        </div>
+
+        <div class="opcion-6">
+            <label for="fecha-vuelta">Fecha vuelta</label>
+      <input type="date" name="fecha-vuelta" id="fecha-vuelta" max="2027-12-31"> 
+        </div>
+
+         <div class="opcion-7">
+            <label for="pasajeros">Pasajeros</label>
+      <input type="number" name="pasajeros" id="pasajeros" placeholder="Cantidad de pasajeros" min="1">
+        </div>
+        <div class="opcion-8">
+            <label for="clase">Clase</label>
+      <select name="clase" id="clase">
+    <option value="Economica">Economica</option>
+    <option value="Premium economy">Premium economy</option>
+    <option value="Primera clase">Primera clase</option>
+    <option value="Premium business">Premium business</option>
+      </select>
+        </div>
+
+
+       <div class="boton">
+    <button type="submit" class="btn-buscar"> Buscar vuelos</button>
+    </div>
+    </form>
+
+    </section>
+</main>
+
+<section class="ofertas">
+    <div class="ofertas-texto">
+         <span class="parte-izquierda">Ofertas destacadas</span>
+         <div class="parte-derecha">
+             <a href="pages\ofertas.html">Ver todas las ofertas</a>
+             <img src="images\icono-flecha.png" alt="logo-flecha">
+         </div>
+    </div>
+
+    <div  class="contenedor-ofertas">
+        <div class="tarjeta">
+            <a href="./pages/ofertas.html"><img src="images\buenosaires.png" alt="foto-buenos-aires"></a>
+            <div class="info">
+               <span class="promo">PROMO</span>
+               <h3>Buenos Aires</h3>
+               <p>Desde</p>
+               <span class="precio">US$65</span>
+            </div>
+
+        </div>
+        <div class="tarjeta">
+            <a href="./pages/ofertas.html"><img src="images\bariloche.png" alt="foto-bariloche"></a>
+             <div class="info">
+               <span class="promo">PROMO</span>
+               <h3>Bariloche</h3>
+               <p>Desde</p>
+               <span class="precio">US$265</span>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <a href="./pages/ofertas.html"><img src="images\rio.png" alt="foto-rio-de-janeiro"></a>
+             <div class="info">
+               <span class="promo">PROMO</span>
+               <h3>Rio de Janeiro</h3>
+               <p>Desde</p>
+               <span class="precio">US$200</span>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <a href="./pages/ofertas.html"><img src="images\madrid.png" alt="foto-madrid"></a>
+             <div class="info">
+               <span class="promo">PROMO</span>
+               <h3>Madrid</h3>
+               <p>Desde</p>
+               <span class="precio">US$1500</span>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</section>
+ 
+
+     <section class="faq-section" id="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+
+        <div class="faq-container">
+            <!-- Pregunta 1 -->
+            <details class="faq-item">
+                <summary>¿Cómo puedo reservar un vuelo? <span class="arrow"></span></summary>
+                <p>Podés buscar tu destino, elegir la fecha y seleccionar el vuelo que más te convenga. Luego completás los datos de los pasajeros y realizás el pago.. </p>
+            </details>
+
+            <!-- Pregunta 2 -->
+            <details class="faq-item">
+                <summary>¿Que metodos de pago aceptan? <span class="arrow"></span></summary>
+                <p>Aceptamos tarjetas de crédito, débito y transferencias bancarias.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>¿Cuanto equipaje puedo llevar? <span class="arrow"></span></summary>
+                <p>El equipaje incluido varía según la aerolínea y la tarifa seleccionada. Esa información aparece antes de finalizar la compra. </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>¿Puedo cambiar la fecha de mi vuelo? <span class="arrow"></span></summary>
+                <p>Sí, dependiendo de las condiciones de la tarifa elegida. Algunos cambios pueden tener costo adicional.</p>
+            </details>
+
+            
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="f-suscripcion">
+            <h2>¡No te pierdas de nada!</h2>
+            <p>Hey! Suscribite a nuestro newsletter para enterarte de todo antes que nadie. Que no se corte!</p>
+
+            <form action="/procesar-datos" method="POST">
+                <div class="divForm">
+                    <!-- <label for="mail">E-mail:</label> -->
+                    <input placeholder="Ingresá tu mail" type="email" id="mail" name="mail" required="">
+                    <button id="Enviar" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="f-Menu">
+            <div class="f-section">
+                <h2 class="f-titulos">Nosotros</h2>
+                <ul>
+                    <li><a href="pages/contacto.html">Sobre FlyNow</a></li>
+                    <li><a href="#faq-section">Preguntas frecuentes</li></a>
+                    <li><a href="pages/condiciones.html">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="pages/contacto.html">Contacto</a></li>
+                    <li><a href="pages/resultados.html">Vuelos</a></li>
+                    <li><a href="pages/ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Redes</h2>
+                <ul class="f-redes">
+                    <li><a href="https://www.instagram.com"><img class="iconoRedes" src="images/redes/instagram.png"
+                                alt="instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img class="iconoRedes" src="images/redes/facebook.png"
+                                alt="facebook"></a>
+                    </li>
+                    <li><a href="https://x.com/"><img class="iconoRedes" src="images/redes/x.png"
+                                alt="X ex Twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <img class="f-logo" src="images/logo.png" alt="FlyNow">
+            </div>
+        </div>
+        <div class="f-Derechos">
+            <p>Copyright © 2010-2026 FlyNow S.A. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+
+
+    <script type="module" src="js/index.js"></script>
+
+</body>
+
+</html>
