@@ -1,0 +1,589 @@
+
+.main-texto{
+  padding: 4rem 4rem 2rem 4rem;
+}
+
+.main-texto .parrafo-1{
+font-weight: 550;
+font-size: 2.5rem;
+margin: 1rem 0 1rem 0;
+}
+
+.main-texto .parrafo-2{
+font-weight: 450;
+font-size: 1rem;
+margin: 1rem 0 1rem 0;
+}
+
+.ordenar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 0 2.5rem;
+}
+
+select {
+  padding: 1rem 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ofertas{
+  background-color: white;
+  width: 92%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.contenedor-ofertas{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-content: center;
+  gap: 3rem;
+  margin: 2rem 0 4rem 0;
+}
+
+.tarjeta img{
+   width: 20rem;
+  height: 15rem;
+  border-top-left-radius:10px;
+  border-top-right-radius: 10px;
+}
+
+.tarjeta{
+  position: relative;
+    width: 20rem;
+    flex-shrink: 0;
+    border-radius: 10px;
+    height: 30rem;
+    background-color: #FAFAFA;
+    padding: 0 0 1rem 0;
+    margin-top: 1rem;
+}
+
+.info {
+  color: black;
+  z-index: 2;
+  top: 1.8rem;
+  left: 1.8rem;
+  text-align: left;
+}
+
+ .promo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #E9631A;
+  color: white; 
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+
+
+
+.info{
+    padding: 0.5rem;
+}
+.info .parte-abajo{
+   padding: 1rem 0;
+    border-top: 1px solid #ccc;
+}
+.info .parte-arriba{
+     padding: 1rem 0;
+}
+
+.ver-vuelos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    border: 3px solid #E9631A;
+    border-radius: 10px;
+    padding: 0.6rem 0;
+    cursor: pointer;
+}
+
+.ver-vuelos img{
+height: 1rem;
+width: auto;
+margin: 0 0.5rem;
+}
+
+.precio{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.ver-vuelos a {
+  text-decoration: none;
+  color: #E9631A;
+}
+
+.menu-checkbox {
+  display: none !important;
+}
+
+
+@media screen and (max-width: 767px) {
+
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-size: 11px;
+  }
+
+  .contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  .menu .menu-izquierda,
+  .menu .menu-derecha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .iniciar-sesion summary {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  /* Hamburguesa móvil */
+  .menu-icono-hamburguesa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+
+  .menu-icono-hamburguesa span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Menú desplegable móvil */
+  .menu .menu-medio ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #264b56;
+    display: flex;
+    flex-direction: column;
+    gap: 0; 
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+  }
+
+  .menu .menu-medio ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu .menu-medio ul li a {
+    display: block;
+    padding: 12px 0;
+    width: 100%;
+    color: #ffffff;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Mostrar menú al activar checkbox */
+  .menu-checkbox:checked ~ ul {
+    max-height: 320px;
+  }
+
+  /* Animación del menú hamburguesa */
+  .menu-checkbox:checked ~ .menu-icono-hamburguesa span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .menu-checkbox:checked ~ .menu-icono-hamburguesa span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-checkbox:checked ~ .menu-icono-hamburguesa span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  .main-texto {
+    padding: 2rem 1.5rem 1rem 1.5rem;
+    text-align: center;
+  }
+
+  .main-texto .parrafo-1 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .main-texto .parrafo-2 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+
+
+  .ordenar {
+    justify-content: center;
+    margin: 1rem auto;
+  }
+
+
+  .ofertas {
+    width: 94%;
+  }
+
+  .contenedor-ofertas {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center; 
+    margin: 1.5rem 0 3rem 0;
+  }
+
+  /* Tarjeta móvil adaptada */
+  .tarjeta {
+    width: 270px;             
+    height: auto;             
+    padding: 0 0 1rem 0;
+    margin-top: 1rem;
+  }
+
+  /* Imagen de oferta */
+  .tarjeta > img {
+    width: 100%;
+    height: 180px;            
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+ 
+  .ver-vuelos {
+    margin: 0.5rem 0;
+    padding: 0.4rem 0;
+  }
+
+  .ver-vuelos img {
+    height: 14px;
+    width: auto;
+    margin: 0 0.5rem;
+  }
+
+  .precio {
+    font-size: 18px;
+  }
+
+  /* FOOTER COMPACTO */
+  .f-suscripcion {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  .f-suscripcion h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    margin-bottom: 0.4rem; 
+  }
+
+  .f-suscripcion p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 0;
+    margin-bottom: 0.8rem; 
+  }
+
+  .f-suscripcion .divForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    max-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .f-suscripcion input#mail {
+    width: 100%;
+    padding: 10px 20px; 
+    border-radius: 25px;
+    border: none;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .f-suscripcion button#Enviar {
+    width: 100%;
+    padding: 10px; 
+    border-radius: 25px;
+    background-color: #E9631A;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .f-Menu {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 1.5rem; 
+    margin-top: 1.8rem; 
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .f-section {
+    width: 100%;
+  }
+
+  .f-section .f-titulos {
+    font-size: 1.4rem;
+    margin: 0;
+    margin-bottom: 0.4rem; 
+    font-weight: 600;
+  }
+
+  .f-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .f-section ul li {
+    margin-bottom: 0.4rem; 
+  }
+
+  .f-section ul li a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+
+  ul.f-redes {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    gap: 18px;
+    margin-top: 0.2rem; 
+  }
+
+  ul.f-redes li a img.iconoRedes {
+    width: 28px; 
+    height: auto;
+  }
+
+  .f-logo {
+    max-width: 100px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .f-Derechos {
+    margin-top: 2rem; 
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  .f-Derechos p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+
+  html, body {
+    font-size: 12px;
+  }
+
+ 
+  .menu {
+    padding: 1rem 1.5rem;
+  }
+
+  .menu .menu-derecha {
+    gap: 0.4rem;
+  }
+
+
+  .menu .menu-medio ul {
+    display: flex;
+    list-style-type: none;
+    gap: 0.8rem; 
+    justify-content: center;
+  }
+
+  .menu-medio a {
+    padding: 0.5rem 0.5rem;
+    font-size: 13px;
+  }
+
+
+  .main-texto {
+    padding: 3rem 2rem 1.5rem 2rem;
+  }
+
+  .main-texto .parrafo-1 {
+    font-size: 2.8rem;
+  }
+
+  .main-texto .parrafo-2 {
+    font-size: 1.2rem;
+  }
+
+  .ordenar {
+    margin: 0 2rem;
+  }
+
+ 
+  .ofertas {
+    width: 90%;
+  }
+
+  .contenedor-ofertas {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    justify-items: center;
+    margin: 2rem 0;
+  }
+
+
+  .tarjeta {
+    width: 240px;             
+    height: auto;             
+    padding: 0 0 1rem 0;
+    margin-top: 1rem;
+  }
+
+  .tarjeta > img {
+    width: 100%;
+    height: 160px;          
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+
+  .ver-vuelos {
+    margin: 0.8rem 0;
+    padding: 0.5rem 0;
+  }
+
+  .ver-vuelos img {
+    height: 14px;
+    width: auto;
+    margin: 0 0.5rem;
+  }
+
+  .precio {
+    font-size: 20px;
+  }
+
+ 
+  .f-suscripcion {
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .f-suscripcion h2 {
+    font-size: 2rem;
+  }
+
+  .f-suscripcion p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .f-suscripcion .divForm {
+    display: flex;
+    flex-direction: row; 
+    gap: 10px;
+    max-width: 450px;
+    margin: 0 auto; 
+  }
+
+  .f-suscripcion input#mail {
+    flex: 1;
+    text-align: left;
+    padding: 12px 20px;
+  }
+
+  .f-suscripcion button#Enviar {
+    width: auto;
+    padding: 12px 25px;
+  }
+
+  .f-Menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-top: 3rem;
+    text-align: left;
+  }
+
+  .f-section {
+    width: auto;
+    min-width: 150px;
+  }
+
+  .f-section .f-titulos {
+    text-align: left;
+    margin-bottom: 0.8rem;
+  }
+
+  ul.f-redes {
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .f-logo {
+    margin: 0;
+  }
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/resultados.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    
+    <title>Resultados</title>
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+            <section class="menu-izquierda">
+                <a href="../index.html"><img class="logo" src="../images/logo.png" alt="logo" height="35"></a>
+            </section>
+
+            
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-icono-hamburguesa">
+            <span class="linea-hamburguesa"></span>
+            <span class="linea-hamburguesa"></span>
+            <span class="linea-hamburguesa"></span>
+        </label>
+
+            <section class="menu-medio">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="vuelos.html">Vuelos</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="MiCuenta.html">Reservas</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </section>
+
+             <section class="menu-derecha">
+        
+            
+            <details class="iniciar-sesion">
+
+                <summary>
+                    ¡Hola!
+                </summary>
+
+                <a href="../index.html" class="cerrar-sesion">
+                    Cerrar sesión
+                </a>
+
+            </details>
+
+            <a href="InicioSesion.html">
+                <img class="usuario" src="../images/usuario.png" alt="usuario" width="30">
+            </a>
+        </section>
+        </nav>
+    </header>
+    <main>
+
+        <input type="checkbox" id="filtro-toggle" class="filtro-checkbox">
+        <label for="filtro-toggle" class="btn-abrir-filtros">
+        <span class="texto-filtro"></span>
+        </label>
+
+
+        <aside>
+            <section class="vuelos"> <!-- Contenedor verde -->
+                <h1> Vuelos </h1>
+                <div class="tipo-vuelo"> <!-- Tipo de vuelo -->
+                    <button class="activo">Ida y vuelta</button>
+                    <button>Solo Ida</button>
+                </div>
+                <div class="contenedor-viaje">
+                    <div class="origenydestino"><!-- Contenedor origen y destino -->
+                        <img class="origen" src="..\images\Origen.svg">
+                        <div class="texto">
+                            <label>ORIGEN</label>
+                            <input type="text" id="input-origen" value="Buenos Aires, Argentina">
+                        </div>
+                    </div>
+                    <div class="linea-separadora"></div>
+                    <div class="origenydestino">
+                        <img class="destino" src="..\images\Destino.svg">
+                        <div class="texto">
+                            <label>DESTINO</label>
+                            <input type="text" id="input-destino" value="Madrid, España">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-fechas"><!-- Contenedor de fecha de ida y vuelta -->
+                    <div class="fecha">
+                        <label>FECHA SALIDA</label>
+                        <input type="date" id="input-fecha-salida" value="2026-05-01">
+                    </div>
+                    <div class="divisor-vertical"></div>
+                    <div class="fecha">
+                        <label>FECHA VUELTA</label>
+                        <input type="date" id="input-fecha-vuelta" value="2026-05-20">
+                    </div>
+                </div>
+
+                <div class="contenedor-pasajero"><!-- Contenedor de pasajero y el tipo de clase -->
+                    <img class="logo-pasajero" src="..\images\Pasajero.svg">
+                    <div class="texto">
+                        <label>PASAJEROS Y CLASES</label>
+                        <div class="datos">
+                            <input type="number" id="passengers" min="1" max="10" value="1">
+                            <select id="select-clase">
+                                <option>Económica</option>
+                                <option>Premium Economy</option>
+                                <option>Business</option>
+                                <option>Primera Clase</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="buscar">Buscar</button>
+            </section>
+            <section class="filtros"><!-- Comienzan los filtros -->
+                <!-- Contenedor de filtro de escala -->
+                <details open>
+                    <summary>Escalas <span class="flecha"></span></summary>
+                    <input type="checkbox" id="all-scales" name="todas-escalas" value="todas-escalas">
+                    <label for="todas-escalas"> Todas las escalas</label><br>
+                    <input type="checkbox" id="direct" name="directo" value="directo">
+                    <label for="directo"> Directo</label><br>
+                    <input type="checkbox" id="1scale" name="1escala" value="1escala">
+                    <label for="1escala"> 1 escala</label><br>
+                    <input type="checkbox" id="2scale" name="2escala" value="2escala">
+                    <label for="2escala"> 2 o más escalas</label>
+                </details>
+
+                <div class="linea-separadora"></div>
+
+                <!-- Contenedor de filtro de equipaje -->
+                <details open>
+                    <summary>Equipaje <span class="flecha"></span></summary>
+                    <input type="checkbox" id="all-options" name="todas-opciones" value="todas-opciones">
+                    <label for="todas-opciones"> Todas las opciones</label><br>
+                    <input type="checkbox" id="staff" name="personal" value="personal">
+                    <label for="personal"> Articulo personal </label><br>
+                    <input type="checkbox" id="hand" name="mano" value="mano">
+                    <label for="mano"> Equipaje de mano</label><br>
+                    <input type="checkbox" id="store" name="bodega" value="bodega">
+                    <label for="bodega"> Equipaje de bodega</label>
+                </details>
+
+                <div class="linea-separadora"></div>
+
+                <h2>Precio</h2> <!-- Contenedor de filtro de precio -->
+                <input class="range" type="range">
+                <div class="rango-valores">
+                    <span>US$ 100</span>
+                    <span>US$ 5.000</span>
+                </div>
+                <div class="linea-separadora"></div>
+
+                <!-- Contenedor de filtro de aerolineas -->
+                <details open>
+                    <summary>Aerolineas <span class="flecha"></span></summary>
+                    <input type="checkbox" id="all-airlines" name="todas-aerolineas" value="todas-aerolineas">
+                    <label for="todas-aerolineas"> Todas las aerolíneas</label><br>
+                    <input type="checkbox" id="argentinas" name="argentinas" value="argentinas">
+                    <label for="argentinas"> Aerolíneas Argentinas </label><br>
+                    <input type="checkbox" id="europa" name="europa" value="europa">
+                    <label for="europa"> Air Europa</label><br>
+                    <input type="checkbox" id="iberia" name="iberia" value="iberia">
+                    <label for="iberia"> Iberia</label><br>
+                    <input type="checkbox" id="latam" name="latam" value="latam">
+                    <label for="latam"> Latam</label><br>
+                    <input type="checkbox" id="lufthansa" name="lufthansa" value="lufthansa">
+                    <label for="lufthansa"> Lufthansa</label>
+                </details>
+
+                <div class="linea-separadora"></div>
+                <!-- Contenedor de filtro de politica -->
+                <div class="contenedor-politica">
+                    <h2>Politicas</h2>
+                    <div class="politica-item">
+                        <div class="politica-texto">
+                            <p class="titulo-opcion">Permite cambios sin cargo</p>
+                            <p class="subtitulo-opcion">Puede aplicarse diferencia de tarifa</p><br>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="politica-item">
+                        <div class="politica-texto">
+                            <p class="titulo-opcion">Permite reembolso</p>
+                            <p class="subtitulo-opcion">Puede tener cargo y/o penalidad</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+        </aside>
+
+
+
+        <section class="contenido">
+            <article class="opciones-vuelos">
+                
+
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="f-suscripcion">
+            <h2>¡No te pierdas de nada!</h2>
+            <p>Hey! Suscribite a nuestro newsletter para enterarte de todo antes que nadie. Que no se corte!</p>
+
+            <form action="/procesar-datos" method="POST">
+                <div class="divForm">
+                    <!-- <label for="mail">E-mail:</label> -->
+                    <input placeholder="Ingresá tu mail" type="email" id="mail" name="mail" required="">
+                    <button id="Enviar" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="f-Menu">
+            <div class="f-section">
+                <h2 class="f-titulos">Nosotros</h2>
+                <ul>
+                    <li><a href="../pages/contacto.html">Sobre FlyNow</a></li>
+                    <li><a href="../index.html#faq-section">Preguntas frecuentes</a></li>
+                    <li><a href="../pages/condiciones.html">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="vuelos.html">Vuelos</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Redes</h2>
+                <ul class="f-redes">
+                    <li><a href="https://www.instagram.com"><img class="iconoRedes" src="../images/redes/instagram.png"
+                                alt="instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img class="iconoRedes" src="../images/redes/facebook.png"
+                                alt="facebook"></a>
+                    </li>
+                    <li><a href="https://x.com/"><img class="iconoRedes" src="../images/redes/x.png"
+                                alt="X ex Twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <img class="f-logo" src="../images/logo.png" alt="FlyNow">
+            </div>
+        </div>
+        <div class="f-Derechos">
+            <p>Copyright © 2010-2026 FlyNow S.A. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+
+    <script type="module" src="../js/resultados.js"></script>
+
+</body>
+
+</html>

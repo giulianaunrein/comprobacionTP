@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/checkout_estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/footer.css">
+    <title>Checkout</title>
+    <script src ="../js/checkout.js" defer></script>
+    
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+            <section class="menu-izquierda">
+                <a href="../index.html"><img class="logo" src="../images/logo.png" alt="logo" height="35"></a>
+            </section>
+
+            <section class="menu-medio">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="vuelos.html">Vuelos</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="MiCuenta.html">Reservas</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </section>
+
+              <section class="menu-derecha">
+        
+            
+            <details class="iniciar-sesion">
+
+                <summary>
+                    ¡Hola!
+                </summary>
+
+                <a href="../index.html" class="cerrar-sesion">
+                    Cerrar sesión
+                </a>
+
+            </details>
+
+            <a href="InicioSesion.html">
+                <img class="usuario" src="../images/usuario.png" alt="usuario" width="30">
+            </a>
+        </section>
+        </nav>
+    </header>
+
+    <main class="contenedor-pago">
+        <div class="encabezado">
+            <h1>Checkout</h1>
+            <p>Completa tus datos y elige tu método de pago para finalizar tu compra.</p>
+        </div>
+
+        <form id="checkout-form">
+            <div class="rejilla-superior">
+
+                <section class="tarjeta">
+                    <div class="pasajero">
+                        <img src="../images/usuario.png" alt="usuario">
+                        <h3>Datos del pasajero</h3>
+                    </div>
+                    <div class="campo">
+                        <label for="full_name">Nombre completo</label>
+                        <input type="text" id="full_name" name="nombre_completo" placeholder="Juan Pérez" required>
+                        <span class="error-mensaje" id="error_full_name"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="document_number">Documento de identidad</label>
+                        <div class="grupo-mixto">
+                            <input type="text" id="document_number" name="nro_documento" placeholder="12345678" required>
+                        </div>
+                        <span class="error-mensaje" id="error_document_number"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="passenger_email">Correo electrónico</label>
+                        <input type="email" id="passenger_email" name="email_pasajero" placeholder="juanperez@gmail.com" required>
+                        <span class="error-mensaje" id="error_passenger_email"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="telefono" placeholder="+54 11 2345 6789" required>
+                        <span class="error-mensaje" id="error_phone"></span>
+                    </div>
+                </section>
+
+                <section class="tarjeta">
+                    <h3>Método de pago</h3>
+
+                    <div class="metodo-item">
+                        <input type="radio" name="metodo_pago" id="car_payment" value="tarjeta" checked>
+                        <label for="car_payment" class="metodo-header">
+                            <span class="radio-custom"></span>
+                            <img class="icon-pago" src="../images/Tarjeta.svg" alt="Tarjeta">
+                            <span class="texto-metodo">Tarjeta de Crédito</span>
+                        </label>
+
+                        <div class="datos tarjeta">
+                            <p>Paga de forma segura con tu tarjeta.</p><br>
+                            <label for="card_number">Número de tarjeta</label>
+                            <input type="text" id="card_number" placeholder="1234 5678 9012 3456">
+
+                            <div class="row" style="margin-top: 10px;">
+                                <div>
+                                    <label for="expiration">Vencimiento</label>
+                                    <input type="text" id="expiration" placeholder="MM/AA">
+                                </div>
+                                <div>
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metodo-item">
+                        <input type="radio" name="metodo_pago" id="paypal_payment" value="paypal">
+                        <label for="paypal_payment" class="metodo-header">
+                            <span class="radio-custom"></span>
+                            <img class="icon-pago" src="../images/paypal.svg" alt="PayPal">
+                            <span class="texto-metodo">PayPal</span>
+                        </label>
+                        <div class="datos paypal">
+                            <p>Serás redirigido a PayPal para finalizar.</p><br>
+                            <input type="email" placeholder="tuemail@paypal.com">
+                        </div>
+                    </div>
+
+                    <div class="metodo-item">
+                        <input type="radio" name="metodo_pago" id="payment_transfer" value="transferencia">
+                        <label for="payment_transfer" class="metodo-header">
+                            <span class="radio-custom"></span>
+                            <img class="icon-pago" src="../images/Banco.svg" alt="Banco">
+                            <span class="texto-metodo">Transferencia bancaria</span>
+                        </label>
+                        <div class="datos transferencia">
+                            <div class="info-bancaria">
+                                <div class="dato-fila"><span class="etiqueta">Banco:</span><span class="valor">Banco
+                                        Nación</span></div>
+                                <div class="dato-fila"><span class="etiqueta">CBU:</span><span
+                                        class="valor">01101234560123456789012</span></div>
+                                <div class="dato-fila"><span class="etiqueta">Alias:</span><span
+                                        class="valor">FLYNOW.PAGOS</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tarjeta" id="resumen-vuelo-card">
+                    <div class="pasajero">
+                        <img src="../images/ticket-color.svg" alt="">
+                        <h3>Resumen de vuelo</h3>
+                    </div>
+
+                    <div id="resumen-itinerario">
+                        <!-- Renderizado dinámicamente por JS (checkout.js) -->
+                    </div>
+
+                    <div class="separador-puntos"></div>
+
+                    <div id="resumen-precios">
+                        <!-- Renderizado dinámicamente por JS (checkout.js) -->
+                    </div>
+
+                    <div class="separador-puntos"></div>
+
+                    <div class="total-pago">
+                        Total <span class="monto" id="monto-resumen">US$ 1.839</span>
+                    </div>
+
+                    <div class="separador-puntos"></div>
+
+                    <div class="campo-cupon">
+                        <label for="discount_coupon" style="display: none;">Cupón</label>
+                        <input class="cupon" type="text" id="discount_coupon" name="cupon_descuento"
+                            placeholder="Ingrese tu cupón de descuento">
+                        <button type="button" class="boton-cupon" id="btn-aplicar-cupon">Aplicar</button>
+                    </div>
+
+                    <span class="error-mensaje" id="error_cupon"></span>
+
+                </section>
+
+                <section class="resumen">
+                    <div class="total-pago">
+                        Total a pagar <span class="monto" id="monto-total-pagar">US$ 1.839</span>
+                    </div>
+                    <button type="button" class="boton-accion" id="btn-pagar">
+                        Pagar
+                    </button>
+                </section>
+            </div>
+        </form>
+    </main>
+
+<footer class="footer">
+        <div class="f-suscripcion">
+            <h2>¡No te pierdas de nada!</h2>
+            <p>Hey! Suscribite a nuestro newsletter para enterarte de todo antes que nadie. Que no se corte!</p>
+
+            <form action="/procesar-datos" method="POST">
+                <div class="divForm">
+                    <!-- <label for="mail">E-mail:</label> -->
+                    <input placeholder="Ingresá tu mail" type="email" id="mail" name="mail" required="">
+                    <button id="Enviar" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="f-Menu">
+            <div class="f-section">
+                <h2 class="f-titulos">Nosotros</h2>
+                <ul>
+                    <li><a href="../pages/contacto.html">Sobre FlyNow</a></li>
+                    <li><a href="../index.html#faq-section">Preguntas frecuentes</a></li>
+                    <li><a href="../pages/condiciones.html">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
+                    <li><a href="../pages/vuelos.html">Vuelos</a></li>
+                    <li><a href="../pages/ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Redes</h2>
+                <ul class="f-redes">
+                    <li><a href="https://www.instagram.com"><img class="iconoRedes" src="../images/redes/instagram.png"
+                                alt="instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img class="iconoRedes" src="../images/redes/facebook.png"
+                                alt="facebook"></a>
+                    </li>
+                    <li><a href="https://x.com/"><img class="iconoRedes" src="../images/redes/x.png"
+                                alt="X ex Twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <img class="f-logo" src="../images/logo.png" alt="FlyNow">
+            </div>
+        </div>
+        <div class="f-Derechos">
+            <p>Copyright © 2010-2026 FlyNow S.A. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

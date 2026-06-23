@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/contacto.css">
+    <title>Contacto</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="menu">
+            <section class="menu-izquierda">
+                <a href="../index.html"><img class="logo" src="../images/logo.png" alt="logo" height="35"></a>
+            </section>
+
+            <section class="menu-medio">
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-icono-hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="vuelos.html">Vuelos</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="MiCuenta.html">Reservas</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </section>
+            <section class="menu-derecha">
+
+
+                <details class="iniciar-sesion">
+
+                    <summary>
+                        ¡Hola!
+                    </summary>
+
+                    <a href="../index.html" class="cerrar-sesion">
+                        Cerrar sesión
+                    </a>
+
+                </details>
+
+                <a href="InicioSesion.html">
+                    <img class="usuario" src="../images/usuario.png" alt="usuario" width="30">
+                </a>
+            </section>
+        </nav>
+    </header>
+
+    <section class="contacto-section">
+        <h2>Contacto</h2>
+        <div>
+            <p>
+                Te invitamos a mirar la sección de <a class="redireccion" href="../index.html">preguntas frecuentes</a>
+                donde seguro podrás encontrar muchas de las respuestas a tus consultas. En caso de sugerencias,
+                problemas u otra consula podes ponerte en contacto con nosotros por el formulario.
+            </p>
+        </div>
+
+        <!-- novalidate para que el navegador no use sus validaciones por defecto -->
+        <form class="contacto-form" id="form-contacto" novalidate>
+            <div class="grupo-input">
+                <input type="text" id="nombre" placeholder="Nombre">
+            </div>
+
+            <div class="grupo-input">
+                <input type="email" id="email" placeholder="Email">
+            </div>
+
+            <div class="grupo-input">
+                <input type="tel" id="telefono" placeholder="Teléfono">
+            </div>
+
+            <div class="grupo-input">
+                <textarea id="mensaje" placeholder="Mensaje" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn-enviar">Enviar</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="f-suscripcion">
+            <h2>¡No te pierdas de nada!</h2>
+            <p>Hey! Suscribite a nuestro newsletter para enterarte de todo antes que nadie. Que no se corte!</p>
+            <form action="../index.html" method="POST">
+                <div class="divForm">
+                    <!-- <label for="mail">E-mail:</label> -->
+                    <input placeholder="Ingresá tu mail" type="email" id="mail" name="mail" required="">
+                    <button id="Enviar" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="f-Menu">
+            <div class="f-section">
+                <h2 class="f-titulos">Nosotros</h2>
+                <ul>
+                    <li><a href="#">Sobre FlyNow</a></li>
+                    <li><a href="../index.html#faq-section">Preguntas frecuentes</a></li>
+                    <li><a href="../pages/condiciones.html">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../pages/vuelos.html">Vuelos</a></li>
+                    <li><a href="../pages/ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Redes</h2>
+                <ul class="f-redes">
+                    <li><a href="https://www.instagram.com"><img class="iconoRedes" src="../images/redes/instagram.png"
+                                alt="instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img class="iconoRedes" src="../images/redes/facebook.png"
+                                alt="facebook"></a>
+                    </li>
+                    <li><a href="https://x.com/"><img class="iconoRedes" src="../images/redes/x.png"
+                                alt="X ex Twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <img class="f-logo" src="../images/logo.png" alt="FlyNow">
+            </div>
+        </div>
+        <div class="f-Derechos">
+            <p>Copyright © 2010-2026 FlyNow S.A. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+    <script src="../js/contacto.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1521 @@
+
+body{
+    width: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+main{
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: auto ;
+    max-width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.contenido div{
+    place-content: center;
+
+}
+
+
+.contenido{
+    padding-top:3%;
+    grid-column: 2/3;
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    
+}
+
+.tarjeta-vuelo {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    display: grid;
+    grid-template-columns: 80% 20%; 
+    border: 0.02em solid #bab7b7;
+    border-radius: 1em;
+    background-color: rgb(255, 255, 255);
+   padding: 0;
+   align-items: center;
+    
+}
+
+.aerolinea{/*es la imagen y el nombre*/
+    display: flex;
+    align-items: center; 
+    gap: 0.8em;          
+    text-align: left;   
+}
+
+.nombreAerolinea{
+    font-size: 0.8em;
+    color: #000000;
+}
+
+
+.aeroargentina {
+    width: 4em;
+    height: auto;
+}
+
+
+.informacion{/*contiene el vuelo, ida y vuelta*/
+    display: flex;
+    flex-direction: column; 
+    padding: 1em;
+    gap: 1em;
+}
+
+
+.info{/*hora del viaje*/
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: center;
+}
+
+
+.fila {/*ida o vuelta*/
+    display: grid;
+    grid-template-columns:  9.3em 6.25em 1fr 6.25em 6.25em;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.etiqueta {
+    font-size: 0.7em;
+    color: #777;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.hora {
+    font-size: 1.1em;
+    color: #000;
+}
+
+.ciudad {
+    font-size: 0.8em;
+    color: #444;
+}
+
+.duracion {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    padding: 0 0.6em;
+    font-size: 0.7em;
+}
+
+.linea-trayecto {
+    width: 100%;       
+    height: 0.03em;       
+    background-color: #ccc;
+    margin: 5px 0;   
+    position: relative;
+}
+
+.precio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 0.03em solid #eee; 
+    padding: 0.9em;
+    background-color: white;
+}
+
+
+span{
+    font-size: 1em;
+    color: #555;
+}
+
+
+.monto{
+    font-size: 1.5em;
+     margin-top: 0.3em;
+}
+
+
+/* boton*/
+.boton-accion {
+    background-color: #E9631A;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    font-size: 0.9rem;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.mochila, .valija, .maleta {
+    width: 1.2em;
+    height: auto;
+}
+
+
+
+aside{/* Estilo del contenedor principal lateral */
+  grid-column: 1/2;
+  height: auto;
+  margin-left: 2em;
+}
+.vuelos{/* Estilo del contenedor verde */
+  display: flex;
+  flex-direction: column;
+  background-color: #315762;
+  height: 70vh;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  align-self: flex-start;
+  margin-left: 5%;
+}
+h2{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.tipo-vuelo {/* Contenedor de los botones de tipo de vuelo */
+  align-self: flex-start;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;  
+  margin-left: 5%;
+}
+
+.tipo-vuelo button {/* Botones de tipo de vuelo*/
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+  white-space: nowrap; 
+  
+}
+.tipo-vuelo .activo {
+  background-color: white;
+  border: 1px solid #e9631a;
+  color: #e9631a;
+  
+}
+
+.contenedor-viaje { /* Bloque blanco de Origen/Destino */
+  background-color: white;
+  border-radius: 4px; 
+  padding: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.origenydestino{ /* Fila interna de origen o destino */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 5px 0;
+}
+
+.linea-separadora {
+  height: 1px;
+  background-color: #eee;
+  margin-left: 45px; 
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+input {/* Inputs de texto*/
+  border: none;           
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif ;
+}
+
+
+.texto {
+  display: flex;
+  flex-direction: column; 
+}
+
+
+.contenedor-fechas{/* Bloque de fechas */
+  width: 90%;
+  padding:2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  background-color: white;
+  align-items: center;
+  display: flex;
+  margin-top: 15px;
+}
+
+.fecha{
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.divisor-vertical {
+  width: 1px;
+  height: 40px;
+  background-color: #eee;
+}
+
+.contenedor-pasajero{/* Bloque de pasajero */
+  width: 90%;
+  padding: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  background-color: white;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  display: flex;
+  gap: 5px;
+}
+
+.fila-datos {  /* Contenedor para alinear el número y el select */
+  display: flex;
+  align-items: center; 
+  gap: 4px;            
+  font-size: 1rem;
+  font-weight: 600;    
+  color: #333;
+}
+#passengers{ /* Alinar el numero de pasajeros*/
+  text-align: center;
+}
+.buscar { /*boton buscar*/
+  width: 80%;
+  background-color: #E9631A;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+label{/* Etiquetas de título internas */
+  font-family: Arial, Helvetica, sans-serif ;
+  font-size: 17px;
+}
+
+.origen, .destino, .logo-pasajero{ /*imagenes*/
+  width: 10%;
+  padding-left: 4%;
+  
+}
+
+.filtros{/* Bloque de filtros */
+  border: 0.05em solid #eee;
+  margin-top: 1em;
+  padding-bottom: 2em;
+  
+  accent-color: #E9631A;;
+}
+.range{ /* Barra de precio */
+  width: 90%;
+}
+
+
+.rango-valores { /* Contenedor de los precios */
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 8px; 
+  font-family: Arial, Helvetica, sans-serif;
+  padding-right: 2%;
+}
+
+summary {
+  list-style: none; 
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  padding: 15px ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+/* Agregar una flecha que rote */
+summary::after {
+  content: '▶';
+  font-size: 0.7rem;
+  transition: transform 0.3s;
+  color: #777;
+  padding-left: 10%;
+}
+details[open] summary::after { /*Se encarga de darle movimiento al hacer clic*/
+  transform: rotate(90deg);
+}
+
+.contenedor-politicas {
+  display: flex; 
+  gap: 40px;     
+  flex-wrap: wrap; 
+  align-items: flex-start;
+}
+
+.politica-item {
+  display: flex;
+  align-items: center; 
+  gap: 15px;           
+}
+
+.politica-texto {
+  width: 300px;
+  max-width: 250px;
+}
+
+.titulo-opcion {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #333;
+}
+
+.subtitulo-opcion {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #777;
+  margin: 2px 0 0 0;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #315762 ; 
+  transition: .4s;
+  border-radius: 34px;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+
+input:checked + .slider {/* Color cuando está activo */
+  background-color: #E9631A; 
+}
+
+
+input:checked + .slider:before {/* Movimiento del círculo al activar */
+  transform: translateX(24px);
+}
+
+ 
+/* Oculta el checkbox y el icono en la versión de escritorio */
+.menu-checkbox,
+.menu-icono-hamburguesa {
+    display: none;
+}
+ 
+/* Oculta el checkbox y botón de filtros (solo deben verse en mobile) */
+.filtro-checkbox,
+.btn-abrir-filtros {
+    display: none;
+}
+
+.sin-resultados {
+    text-align: center;
+    margin: 4rem auto;
+    padding: 2rem;
+    max-width: 700px;
+    background: white;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    color: #444;
+}
+
+.sin-resultados p {
+    margin: 0;
+}
+ 
+/* ==========================================================================
+    RESPONSIVE PARA TABLET (De 37.6em a 64em)
+   ========================================================================== */
+@media (min-width: 37.6em) and (max-width: 64em) {
+ 
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+ 
+    /* --- MENÚ SUPERIOR --- */
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0.5em 0.6em;
+        box-sizing: border-box;
+        height: auto;
+        gap: 0.3em;
+    }
+ 
+    .menu-izquierda {
+        flex-shrink: 0;
+    }
+ 
+    .menu-izquierda .logo {
+        height: 26px;
+        width: auto;
+    }
+ 
+    .menu-medio {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+ 
+    .menu-medio ul {
+        display: flex;
+        flex-direction: row;
+        gap: 0.1rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+ 
+    .menu-medio a {
+        font-size: 0.62em;
+        padding: 0.3rem 0.35rem;
+        white-space: nowrap;
+    }
+ 
+    .menu-derecha {
+        flex-shrink: 0;
+        gap: 0.3em;
+    }
+ 
+    .iniciar-sesion summary {
+        font-size: 0.65em;
+        padding: 0.25rem 0.5rem;
+        white-space: nowrap;
+    }
+ 
+    .menu-derecha .usuario {
+        width: 22px;
+    }
+ 
+    .menu-checkbox,
+    .menu-icono-hamburguesa {
+        display: none;
+    }
+ 
+    main {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 100%;
+        padding: 0;
+        margin-top: 0.5em;
+        box-sizing: border-box;
+        align-items: start;
+    }
+ 
+    aside {
+        grid-column: 1 / 2;
+        width: 100%;
+        margin-left: 0;
+        padding: 0 0.5em;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+ 
+    /* Buscador verde */
+    .vuelos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8em 0.5em;
+        height: auto;
+        box-sizing: border-box;
+    }
+ 
+    .vuelos h1 {
+        font-size: 1.1em;
+        margin-left: 5%;
+        align-self: flex-start;
+    }
+ 
+    .tipo-vuelo {
+        margin-left: 5%;
+        gap: 5px;
+    }
+ 
+    .tipo-vuelo button {
+        font-size: 0.7em;
+        padding: 5px 8px;
+    }
+ 
+    .contenedor-viaje {
+        width: 92%;
+        padding: 6px;
+    }
+ 
+    .origenydestino {
+        gap: 8px;
+        padding: 3px 0;
+    }
+ 
+    .origen, .destino, .logo-pasajero {
+        width: 14%;
+    }
+ 
+    .texto label {
+        font-size: 0.65em;
+    }
+ 
+    .texto input {
+        font-size: 0.72em;
+        width: 100%;
+    }
+ 
+    .contenedor-fechas {
+        width: 92%;
+        padding: 6px 4px;
+        margin-top: 8px;
+        overflow: hidden;
+    }
+ 
+    .fecha {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+ 
+    .fecha label {
+        font-size: 0.6em;
+        white-space: nowrap;
+    }
+ 
+    .fecha input[type="date"] {
+        font-size: 0.58em;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 2px;
+    }
+ 
+    .contenedor-pasajero {
+        width: 92%;
+        padding: 6px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        gap: 4px;
+    }
+ 
+    .contenedor-pasajero label {
+        font-size: 0.65em;
+    }
+ 
+    .datos input[type="number"],
+    .datos select {
+        font-size: 0.65em;
+    }
+ 
+    .buscar {
+        width: 85%;
+        font-size: 0.8em;
+        padding: 7px;
+    }
+ 
+    .filtros {
+        margin-top: 0.5em;
+        padding-bottom: 1em;
+    }
+ 
+    .filtros summary {
+        font-size: 0.85em;
+        padding: 8px 10px;
+    }
+ 
+    .filtros details {
+        display: block;
+    }
+ 
+    .filtros details > br {
+        display: block;
+    }
+ 
+    .filtros input[type="checkbox"] {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+        margin: 0 4px 0 10px;
+        vertical-align: middle;
+        display: inline-block;
+        float: none;
+    }
+ 
+    .filtros details > label,
+    .filtros label {
+        font-size: 0.72em;
+        display: inline;
+        align-items: unset;
+        gap: unset;
+        padding: 0;
+        cursor: pointer;
+        white-space: normal;
+        vertical-align: middle;
+    }
+ 
+    .filtros h2 {
+        font-size: 0.85em;
+        padding: 8px 10px 4px;
+    }
+ 
+    .range {
+        width: 88%;
+        margin: 0 6%;
+    }
+ 
+    .rango-valores {
+        font-size: 0.65em;
+        padding: 0 6%;
+    }
+ 
+    .contenedor-politica {
+        padding: 0 10px;
+    }
+ 
+    .politica-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 4px 0;
+    }
+ 
+    .politica-texto {
+        max-width: 75%;
+        width: auto;
+    }
+ 
+    .titulo-opcion {
+        font-size: 0.7em;
+    }
+ 
+    .subtitulo-opcion {
+        font-size: 0.6em;
+    }
+ 
+    .switch {
+        width: 36px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+ 
+    .slider:before {
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+    }
+ 
+    input:checked + .slider:before {
+        transform: translateX(16px);
+    }
+ 
+    .contenido {
+        grid-column: 2 / 3;
+        width: 100%;
+        padding: 0.5em 0.5em 0.5em 0;
+        box-sizing: border-box;
+    }
+ 
+    .opciones-vuelos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+ 
+    .tarjeta-vuelo {
+        display: grid;
+        grid-template-columns: 72% 28%;
+        width: 97%;
+        margin-left: 1.5%;
+        margin-bottom: 0;
+        border-radius: 0.5em;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+ 
+    .informacion {
+        padding: 0.5em 0.4em;
+        gap: 0.4em;
+    }
+ 
+    .fila {
+        display: grid;
+        grid-template-columns: 4em 3.2em 1fr 3.2em 4em;
+        align-items: center;
+        gap: 0.1em;
+        padding: 0.2em 0;
+    }
+ 
+    .aerolinea {
+        gap: 3px;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: hidden;
+        min-width: 0;
+    }
+ 
+    .aeroargentina {
+        width: 2em;
+        height: auto;
+        flex-shrink: 0;
+    }
+ 
+    .nombreAerolinea {
+        font-size: 0.46em;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 4.5em;
+    }
+ 
+    .etiqueta {
+        font-size: 0.55em;
+    }
+ 
+    .hora {
+        font-size: 0.75em;
+    }
+ 
+    .ciudad {
+        font-size: 0.6em;
+    }
+ 
+    .duracion {
+        font-size: 0.55em;
+        padding: 0 0.2em;
+    }
+ 
+    .tiempo {
+        font-size: 1em;
+    }
+ 
+    .tipo-vuelo-texto, .tipo-vuelo {
+        font-size: 0.9em;
+    }
+ 
+    .mochila, .valija, .maleta {
+        width: 0.9em;
+        height: auto;
+        vertical-align: bottom;
+    }
+ 
+    .icono-servicio {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 2px;
+        flex-wrap: nowrap;
+    }
+ 
+    
+    .precio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em 0.3em;
+        gap: 0.25em;
+    }
+ 
+    .desde {
+        font-size: 0.65em;
+    }
+ 
+    .monto {
+        font-size: 0.9em;
+        margin-top: 0;
+        text-align: center;
+    }
+ 
+    .boton-accion {
+        padding: 0.35em 0.5em;
+        font-size: 0.65em;
+        width: 90%;
+        text-align: center;
+        border-radius: 0.4em;
+    }
+ 
+    /* --- FOOTER --- */
+    .footer {
+        padding: 1em 1.5em;
+    }
+ 
+    .f-suscripcion h2 {
+        font-size: 1em;
+    }
+ 
+    .f-suscripcion p {
+        font-size: 0.8em;
+    }
+ 
+    #mail {
+        width: 50vw;
+        padding: 0.7em;
+        font-size: 0.8em;
+    }
+ 
+    #Enviar {
+        width: 20vw;
+        padding: 0.7em;
+        font-size: 0.8em;
+    }
+ 
+    .f-Menu {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 0.5em;
+    }
+ 
+    .f-titulos {
+        font-size: 0.85em;
+    }
+ 
+    .f-section a,
+    .f-section li {
+        font-size: 0.75em;
+    }
+ 
+    .iconoRedes {
+        width: 1.4em;
+    }
+ 
+    .f-logo {
+        width: 8em;
+    }
+ 
+    .f-Derechos p {
+        font-size: 0.7em;
+    }
+}
+ 
+/* ==========================================================================
+   RESPONSIVE MOBILE (hasta 37.5em)
+   ========================================================================== */
+@media (max-width: 37.5em) {
+ 
+    
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+ 
+    /* MENÚ HAMBURGUESA SUPERIOR*/
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        position: relative;
+        height: auto;
+        background-color: #315762;
+        width: 100%;
+        box-sizing: border-box;
+    }
+ 
+    .menu-izquierda, .menu-derecha {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+ 
+    .iniciar-sesion summary {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+ 
+    /* Botón hamburguesa visible en mobile */
+    .menu-icono-hamburguesa {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22px;
+        height: 16px;
+        cursor: pointer;
+        margin: 0 10px;
+    }
+ 
+    .menu-icono-hamburguesa .linea-hamburguesa {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+ 
+    /* Menú desplegable */
+    .menu .menu-medio ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #264b56;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        z-index: 99999;
+    }
+ 
+    .menu-medio ul li {
+        width: 100%;
+        text-align: center;
+    }
+ 
+    .menu-medio ul li a {
+        display: block;
+        padding: 12px 0;
+        width: 100%;
+        color: #ffffff;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+ 
+    .menu-checkbox:checked ~ .menu-medio ul {
+        max-height: 320px;
+    }
+ 
+    
+    .menu-checkbox:checked ~ .menu-icono-hamburguesa .linea-hamburguesa:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+    }
+    .menu-checkbox:checked ~ .menu-icono-hamburguesa .linea-hamburguesa:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-checkbox:checked ~ .menu-icono-hamburguesa .linea-hamburguesa:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+    }
+ 
+    
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0.6em 0.5em;
+        box-sizing: border-box;
+        gap: 0.6em;
+    }
+ 
+    /*BOTÓN QUE ABRE FILTROS Y BUSCADOR */
+    .filtro-checkbox {
+        display: none;
+    }
+ 
+    .btn-abrir-filtros {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        width: 92%;
+        background-color: #E9631A;
+        color: #ffffff;
+        padding: 0.75em 1em;
+        border-radius: 0.5em;
+        font-size: 0.9em;
+        font-weight: bold;
+        cursor: pointer;
+        box-sizing: border-box;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        margin: 0 auto;
+        user-select: none;
+    }
+ 
+    .btn-abrir-filtros .icono-filtro {
+        font-size: 1.1em;
+    }
+ 
+    /*ASIDE: oculto por defecto, se abre con checkbox*/
+ 
+    aside {
+        width: 92%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6em;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.45s ease-in-out, opacity 0.3s ease-in-out;
+    }
+ 
+ 
+    .filtro-checkbox:checked ~ aside {
+        max-height: 120em;
+        opacity: 1;
+        margin-bottom: 0.5em;
+    }
+ 
+    /* El botón cambia de texto cuando está abierto */
+    .filtro-checkbox:checked ~ .btn-abrir-filtros .texto-filtro::before {
+        content: "✕  Cerrar buscador y filtros";
+    }
+    .filtro-checkbox:not(:checked) ~ .btn-abrir-filtros .texto-filtro::before {
+        content: "☰  Buscador y filtros";
+    }
+    .btn-abrir-filtros .texto-filtro {
+        font-size: 1em;
+    }
+ 
+    /*BUSCADOR VERDE*/
+    .vuelos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0.8em;
+        height: auto;
+        box-sizing: border-box;
+        border-radius: 0.4em;
+    }
+ 
+    .vuelos h1 {
+        font-size: 1.1em;
+        align-self: flex-start;
+        margin-left: 4%;
+    }
+ 
+    .tipo-vuelo {
+        margin-left: 4%;
+        gap: 6px;
+    }
+ 
+    .tipo-vuelo button {
+        font-size: 0.75em;
+        padding: 6px 10px;
+    }
+ 
+    .contenedor-viaje {
+        width: 93%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+ 
+    .origenydestino {
+        gap: 10px;
+        padding: 4px 0;
+    }
+ 
+    .origen, .destino, .logo-pasajero {
+        width: 10%;
+    }
+ 
+    .texto label {
+        font-size: 0.65em;
+    }
+ 
+    .texto input {
+        font-size: 0.8em;
+        width: 100%;
+    }
+ 
+    .contenedor-fechas {
+        width: 93%;
+        display: flex;
+        flex-direction: row;
+        padding: 8px;
+        margin-top: 8px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+ 
+    .fecha {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+ 
+    .fecha label {
+        font-size: 0.6em;
+        white-space: nowrap;
+    }
+ 
+    .fecha input[type="date"] {
+        font-size: 0.6em;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 2px;
+    }
+ 
+    .contenedor-pasajero {
+        width: 93%;
+        padding: 8px;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        gap: 6px;
+        box-sizing: border-box;
+    }
+ 
+    .contenedor-pasajero label {
+        font-size: 0.65em;
+    }
+ 
+    .datos input[type="number"],
+    .datos select {
+        font-size: 0.7em;
+    }
+ 
+    .buscar {
+        width: 85%;
+        font-size: 0.85em;
+        padding: 9px;
+    }
+ 
+    /* FILTROS */
+    .filtros {
+        margin-top: 0;
+        padding-bottom: 1em;
+        border: 1px solid #eee;
+        box-sizing: border-box;
+    }
+ 
+    .filtros summary {
+        font-size: 0.9em;
+        padding: 10px 12px;
+    }
+ 
+    .filtros input[type="checkbox"] {
+        width: 13px;
+        height: 13px;
+        flex-shrink: 0;
+        margin: 0 5px 0 12px;
+        vertical-align: middle;
+    }
+ 
+    .filtros label {
+        font-size: 0.78em;
+        display: inline;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+ 
+    .filtros h2 {
+        font-size: 0.9em;
+        padding: 10px 12px 4px;
+    }
+ 
+    .range {
+        width: 88%;
+        margin: 0 6%;
+    }
+ 
+    .rango-valores {
+        font-size: 0.7em;
+        padding: 0 6%;
+    }
+ 
+    .contenedor-politica {
+        padding: 0 12px;
+    }
+ 
+    .politica-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 5px 0;
+    }
+ 
+    .politica-texto {
+        max-width: 78%;
+        width: auto;
+    }
+ 
+    .titulo-opcion {
+        font-size: 0.75em;
+    }
+ 
+    .subtitulo-opcion {
+        font-size: 0.65em;
+    }
+ 
+    .switch {
+        width: 38px;
+        height: 22px;
+        flex-shrink: 0;
+    }
+ 
+    .slider:before {
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+    }
+ 
+    input:checked + .slider:before {
+        transform: translateX(16px);
+    }
+ 
+    /*TARJETAS DE VUELO */
+    .contenido {
+        width: 92%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7em;
+        margin: 0 auto;
+    }
+ 
+    .tarjeta-vuelo {
+        display: flex;
+        flex-direction: column;
+        padding: 0.75em;
+        border-radius: 0.5em;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+    }
+ 
+    .tarjeta-vuelo .fila {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px dashed #e5e5e5;
+        padding-bottom: 0.5em;
+        margin-bottom: 0.5em;
+        gap: 0.3em;
+    }
+ 
+    .aerolinea {
+        flex: 0 0 22%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        overflow: hidden;
+    }
+ 
+    .aeroargentina, .aerolinea img {
+        width: 1.8em;
+        height: 1.8em;
+        object-fit: contain;
+    }
+ 
+    .nombreAerolinea {
+        font-size: 0.5em;
+        text-align: center;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 4.5em;
+    }
+ 
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+ 
+    .etiqueta {
+        font-size: 0.55em;
+    }
+ 
+    .hora {
+        font-size: 0.85em;
+    }
+ 
+    .ciudad {
+        font-size: 0.65em;
+    }
+ 
+    .duracion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.55em;
+        flex: 1;
+        padding: 0 0.3em;
+    }
+ 
+    .linea-trayecto {
+        width: 100%;
+    }
+ 
+    
+    .icono-servicio {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 2px;
+    }
+ 
+    .mochila, .valija, .maleta {
+        width: 0.95em;
+        height: auto;
+        vertical-align: bottom;
+    }
+ 
+    /* Precio */
+    .tarjeta-vuelo .precio {
+        width: 100%;
+        border: none;
+        padding: 0.3em 0 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+ 
+    .desde {
+        font-size: 0.7em;
+    }
+ 
+    .monto {
+        font-size: 1.1em;
+        margin-top: 0;
+    }
+ 
+    .boton-accion {
+        width: auto;
+        padding: 0.4em 0.9em;
+        font-size: 0.75em;
+    }
+ 
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+        padding: 1em;
+    }
+ 
+    .f-suscripcion h2 {
+        font-size: 1em;
+    }
+ 
+    .f-suscripcion p {
+        font-size: 0.78em;
+    }
+ 
+    .divForm {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6em;
+    }
+ 
+    #mail {
+        width: 85vw;
+        padding: 0.7em;
+        font-size: 0.85em;
+    }
+ 
+    #Enviar {
+        width: 85vw;
+        padding: 0.7em;
+        font-size: 0.85em;
+    }
+ 
+    .f-Menu {
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+    }
+ 
+    .f-titulos {
+        font-size: 0.9em;
+    }
+ 
+    .f-section a,
+    .f-section li {
+        font-size: 0.78em;
+    }
+ 
+    .iconoRedes {
+        width: 1.6em;
+    }
+ 
+    .f-logo {
+        width: 7em;
+    }
+ 
+    .f-Derechos p {
+        font-size: 0.7em;
+    }
+}

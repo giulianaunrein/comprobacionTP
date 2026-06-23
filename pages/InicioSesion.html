@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="../styles/InicioSesion.css">
+    
+</head>
+<body>
+
+    <header class="encabezado"> 
+        <section class="menu-izquierda">
+          <a href="../index.html"><img class="logo"  src="../images/logo.png" alt="logo" height="35"></a>
+        </section>
+          <nav>
+            <a href="condiciones.html">Terminos y condiciones</a>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <section class="formulario">
+            <h2>Iniciar sesión</h2>
+            <p>Ingresá a tu cuenta para continuar</p>
+
+            <form id="formLogin">
+                <label for="email">Correo electrónico</label>
+                <input type="email" placeholder="Correo electrónico"  id="email" required>
+
+                <label for="contrasenia">Contraseña</label>
+                <input type="password" placeholder="Contraseña" id="contrasenia" required minlength="6">
+                <button type="submit">Ingresar</button>
+            </form>
+            <p id="mensaje"></p>
+            <div class="olvi-regis">
+                <a href="contrasenia.html" class="olv-contrasenia">¿Olvidaste tu contraseña?</a>
+                <p>¿No tenés cuenta? <a href="registrate.html" class="registrate">Registrate</a></p>
+            </div>
+        </section>
+    </main>
+    <script src="../js/iniciarSesion.js"></script>
+</body>
+</html>

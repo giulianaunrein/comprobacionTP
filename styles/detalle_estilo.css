@@ -1,0 +1,1282 @@
+
+
+body{
+    max-width: 100%;
+    margin: 0;
+   background-color: rgb(243, 241, 241);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.volver {
+    text-decoration: none;
+    color: #e9631a;
+}
+
+.titulo{
+    padding-left: 2em;
+    padding-top: 2em;
+}
+
+.menu-checkbox,
+.menu-icono-hamburguesa {
+    display: none ;
+}
+
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 350px 1fr; 
+    gap: 1.5rem;
+    max-width: 81.25rem;
+    margin: 0.625rem auto;
+    align-items: start;
+    padding: 0 1.25rem;
+}
+.vuelo-columna{
+   background: #fff;
+    border-radius: 0.75rem;
+    padding: 1.563rem;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.05);
+    margin-bottom: 1.25rem;
+}
+
+
+
+.detalle { 
+    height: auto;
+    grid-row: 1; 
+    grid-column: 1;
+    background-color: white;
+    border: 0.05em solid rgb(199, 198, 198);
+    border-radius: 0.8em;
+    padding: 0.9em;
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.05);
+}
+
+.tramo-vuelo{
+    padding-top: 2em;
+}
+
+.grafico-vuelo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 1.5em;
+}
+
+
+.punto-partida, .punto-llegada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3.125rem;
+}
+
+
+
+.punto-llegada{
+    align-items: flex-end;
+}
+
+span{
+    font-size: 1em;
+    color: #555;
+}
+
+.bloque-grafico{
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 0 0.6em;      
+}
+
+.linea{
+    display: flex;
+    align-items: center; 
+    width: 100%;
+    justify-content: center;
+}
+
+.linea-horizontal{
+    flex-grow: 1; 
+    height: 0.063rem;
+    background-color: #ddd;
+}
+
+.avion-mini img, .icono-destino-vuelta{
+    width: 1.2em;
+    margin: 0 0.313rem;
+    filter: grayscale(1); 
+    transform: rotate(180deg);
+}
+
+.circulo{
+    width: 8px;
+    height: 8px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: white; 
+}
+
+.circulo {
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 0.063rem solid #ccc;
+    border-radius: 50%;
+    background-color: white; 
+}
+
+.ciudad {
+    font-size: 0.8em;
+    color: #444;
+}
+
+.linea {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 0.8em;
+}
+.linea hr {
+    border: none;
+    border-top: 0.05em solid #ccc;
+}
+
+li{
+    list-style: none;
+    margin-bottom: 0.5em;
+    padding: 0;
+}
+
+.chico, .logo-informacion{
+    width: 1em;
+    height: auto;
+}
+
+.separador-puntos {
+    border: none;               
+    border-top: 0.125rem dotted #ccc; 
+    height: 0;
+    width: 100%;
+    margin: 1.25rem 0;             
+}
+
+
+.asientos {
+    display: flex;
+    flex-direction: column; 
+    gap: 1.25rem;
+    background-color: white;
+    padding: 1.563rem;
+    border-radius: 0.938rem;
+    border: 0.05em solid rgb(199, 198, 198);
+}
+
+.seccion-asientos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.938rem;
+}
+.seleccionar-asiento {
+    flex: 1;                  
+    min-width: 18.75rem;          
+    max-width: 28.125rem;
+}
+
+.texto {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+.ida{
+    color:#e9631a
+}
+
+
+
+.naranja { color: #e9631a; }
+
+.asiento {
+    display: flex;
+    gap: 1.25rem;
+    
+}
+.mapas-flex {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3.75rem;
+    
+    
+}
+.vuelo-columna {
+    text-align: center;
+}
+.vuelo-titulo {
+    color: #E9631A; 
+    margin-bottom: 0.938rem;
+    font-size: 1.4rem;
+}
+.cuadrado {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.cuadrado-asiento {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;             
+    margin-top: 1.875rem;
+    margin-left: 1.25rem;
+}
+
+.contenedor-asientos-navegacion {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start;
+    gap: 2.5rem; 
+   
+}
+
+/* TABLA Y ASIENTOS */
+.mapa-asientos {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0.313rem;    
+}
+
+.mapa-asientos td {
+    width: 2.188rem; 
+    height: 2.188rem;
+    padding: 0;
+}
+
+.cuadrito, .disponible {
+    width: 2.188rem;
+    height: 2.188rem;
+    border-radius: 0.313rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.disponible { background-color: #315762; cursor: pointer; }
+.ocupado { background-color: #E0E0E0; }
+.seleccionado { background-color: #e9631a; }
+
+.check-asiento { display: none; }
+.check-asiento:checked + .disponible { background-color: #e9631a; }
+
+.pasillo { width: 1.875rem;}
+.num-fila { color: #888; text-align: center; }
+
+.divisor-vertical {
+    width: 0.125rem;
+    height: 31.25rem; 
+    background-color: #eee;
+}
+
+.seleccionar-asiento {
+    display: none; 
+}
+
+.informacion-asiento {
+    border: 0.063rem solid #ddd;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.938rem;
+    gap: 0.625rem;
+}
+
+.img-informacion { width: 1.25rem; }
+
+
+.resumen{ 
+    grid-column: 1/3;
+    grid-row: 2;
+     height: auto;
+    background-color: white; 
+    border: 0.05em solid  rgb(199, 198, 198);
+    border-radius: 0.8em;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.precio{
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-bottom: 1.3em;
+}
+.total{
+    font-size: 1.2em;
+    text-align: left;
+    font-weight: bold;
+}
+
+.monto{
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #e9631a;
+    text-align: right;
+}
+
+
+/*resumen*/
+
+.resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+    background-color: white;
+    border-radius: 0.8em;
+    border: 0.05em solid rgb(199, 198, 198);
+    grid-column: 1 / 3; 
+}
+.boton-continuar{
+    background-color: #e9631a;
+    width: 20em;
+    color: white;
+    border: none;
+    padding: 1em 1.5em;
+
+    font-size: 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+
+}
+.resumen-precio {
+    width: 60%;
+}
+
+.item-precio {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 0.5em;
+}
+
+.monto-final {
+    color: #e9631a; 
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+
+.footer {
+  background-color: #315762;
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em 5em;
+  color: white;
+}
+
+.f-suscripcion {
+  text-align: center;
+
+  padding: 1em;
+}
+
+.divForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1em;
+  padding-top: 1em;
+
+ 
+}
+
+#mail {
+  /* width: 35em; */
+  padding: 1.2em 1.2em;
+  width: 35vw;
+}
+
+#send {
+  padding: 1.2em 1.2em;
+  width: 15vw;
+  background-color: #FF6B00;
+  border-color: #977a7a33;
+  border-radius: 2em;
+  box-shadow: 0%;
+
+}
+
+.f-Menu {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  background-color: #315762;
+  /* #073B4C */
+}
+
+.f-section {
+  padding: 0.5em;
+}
+
+.f-section ul li {
+  list-style-type: none;
+}
+
+
+.f-section a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.iconoRedes {
+  width: 2em;
+  margin-right: 1em;
+}
+
+.f-logo {
+  width: 15em;
+}
+
+.f-redes {
+  display: flex;
+  flex-direction: row;
+}
+
+.f-Derechos {
+  text-align: center;
+}
+@media (min-width: 37.6em) and (max-width: 64em) {
+/* CONFIGURACIÓN GENERAL, RESET Y MENÚ SUPERIOR*/
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-size: 11px; 
+}
+
+    
+header, nav, .navbar, .menu {
+    width: 100% ;
+    max-width: 100% ;
+    box-sizing: border-box ;
+}
+
+    
+nav, .navbar, .menu-container {
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: space-between ;
+    padding: 0.5rem 1.5rem ; 
+}
+
+    
+.navbar-nav, .menu-links, nav ul {
+    display: flex ;
+    flex-direction: row ;
+    gap: 0.938rem; 
+    margin: 0 ;
+    padding: 0 ;
+    list-style: none ;
+    align-items: center ;
+}
+
+   
+.navbar-nav a, .menu-links a, nav ul li a {
+    font-size: 1.1rem ; 
+    padding: 0.313rem 0.5rem;
+}
+
+    
+.btn-perfil, .user-dropdown, [class*="Hola"] {
+    font-size: 1rem ;
+    padding: 0.25rem 0.625rem;
+    height: auto ;
+    white-space: nowrap ; 
+}
+    
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 30% 68%; 
+    gap: 0.625rem;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 100%;
+    padding: 0 0.313rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    align-items: start;
+}
+
+.detalle {
+    width: 100%;
+    box-sizing: border-box ;
+    padding: 0.8rem ;
+}
+
+.detalle h2, .detalle h3, .detalle p {
+    font-size: 0.95rem ; 
+}
+
+    /* 3. ITINERARIO (ORIGEN IZQUIERDA / DESTINO DERECHA)*/
+  .detalle .vuelo-info, 
+.detalle [class*="info-vuelo"], 
+.detalle [class*="itinerario"] {
+    display: flex ;
+    flex-direction: row ; 
+    justify-content: space-between ; 
+    align-items: center ;
+    width: 100% ;
+    max-width: 100% ;
+    padding: 0.625rem 0;
+    margin: 0.625rem 0 1.25rem 0;
+    box-sizing: border-box ;
+    position: relative ;
+}
+
+
+.detalle .vuelo-info > div,
+.detalle [class*="info-vuelo"] > div {
+    display: flex ;
+    flex-direction: column;
+    justify-content: center ;
+}
+
+/* --- ORIGEN (Izquierda) --- */
+.detalle .vuelo-info > div:first-child,
+.detalle [class*="info-vuelo"] > div:first-of-type {
+    align-items: flex-start ;
+    text-align: left ;
+    flex: 1 ;
+    min-height: 2.375rem;     
+    justify-content: flex-end ; 
+}
+
+/* --- GRÁFICO CENTRAL (Duración y Avión) --- */
+.detalle .vuelo-info > div:nth-child(2),
+.detalle [class*="info-vuelo"] > div:nth-of-type(2),
+.detalle .linea-con-avion,
+.detalle [class*="grafico-vuelo"] {
+    align-items: center ;
+    text-align: center ;
+    flex: 1.5 ; 
+    margin: 0 0.625rem;
+}
+
+/* --- DESTINO (Derecha) --- */
+.detalle .vuelo-info > div:last-child,
+.detalle [class*="info-vuelo"] > div:last-of-type {
+    align-items: flex-end ;
+    text-align: right ;
+    flex: 1 ;
+    min-height: 2.375rem;      
+    justify-content: flex-end ; 
+}
+
+.detalle .vuelo-info strong,
+.detalle .vuelo-info .hora {
+    font-size: 0.938rem;
+    font-weight: bold ;
+    color: #000000 ;
+    margin: 0 ;
+    line-height: 1.2 ;
+}
+
+
+.detalle .vuelo-info span,
+.detalle .vuelo-info .aeropuerto {
+    font-size: 0.688rem;
+    color: #666666;
+    margin-top: 0.125rem;
+}
+
+
+.detalle .vuelo-info small,
+.detalle .vuelo-info .duracion,
+.detalle .vuelo-info span[class*="duracion"] {
+    font-size: 0.688rem;
+    color: #666666;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+
+.detalle .linea-horizontal,
+.detalle [class*="linea-tiempo"] {
+    width: 100%;
+    height: 0.063rem;
+    background-color: #cccccc;
+    position: relative;
+    margin: 0.25rem auto 0 auto;
+    display: block;
+}
+
+.detalle-vuelo-info {
+    display: flex ;
+    flex-direction: column ;
+    gap: 0.5rem;
+    padding: 0.625rem 0;
+}
+
+
+.vuelo-ruta-linea {
+    display: flex ;
+    align-items: center ;
+    justify-content: space-between ;
+    width: 100% ;
+    margin: 0.625rem 0;
+}
+
+
+.vuelo-hitos {
+    text-align: center;
+    min-width: 2.813rem;
+}
+
+.vuelo-hitos .hora {
+    font-size: 0.938rem;
+    font-weight: bold ;
+    color: #000000 ;
+    display: block ;
+}
+
+.vuelo-hitos .aeropuerto {
+    font-size: 0.688rem;
+    color: #666666 ;
+    display: block ;
+}
+
+
+.vuelo-duracion-linea {
+    flex-grow: 1 ;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    margin: 0 0.75rem;margin: 0 12px ;
+}
+
+.vuelo-duracion-linea .tiempo {
+    font-size: 11px ;
+    color: #666666 ;
+    margin-bottom: 0.125rem;
+}
+
+.vuelo-duracion-linea .trayecto-linea {
+    width: 100% ;
+    height: 0.063rem;
+    background-color: #666666 ;
+    position: relative ;
+    display: flex t;
+    align-items: center ;
+    justify-content: center ;
+}
+
+
+.vuelo-duracion-linea .trayecto-linea i,
+.vuelo-duracion-linea .trayecto-linea img {
+    background-color: #ffffff ;
+    padding: 0 6px ;
+    color: #000000 ; 
+    font-size: 13px ;
+}
+ /*SECCIÓN CONTENEDORA DE ASIENTOS*/
+.mapas-flex {
+    display: flex ;
+    flex-direction: row ;
+    justify-content: center ; 
+    align-items: start ;
+    gap: 35px ; 
+    width: 100% ;
+    max-width: 100% ;
+    margin: 25px auto ;
+    box-sizing: border-box ;
+}
+
+.vuelo-columna {
+    flex: 1 ;
+    max-width: 300px;
+    background-color: #ffffff ;
+    border-radius: 12px ;
+    padding: 25px 15px ; 
+    box-sizing: border-box ;
+    border: 1px solid #f0f0f0 ;
+}
+
+.vuelo-columna h3 {
+    font-size: 15px ;
+    color: #e65c00;
+    font-weight: bold ;
+    margin-bottom: 20px ; 
+    text-align: center ;
+}
+
+.cuadrado-asiento {
+    display: flex ;
+    justify-content: center ;
+    gap: 10px ;
+    margin-top: 5px ;
+    margin-bottom: 15px ;
+    font-size: 0.9rem ;
+}
+
+.mapas-flex {
+    display: flex ;
+    flex-direction: row ; 
+    justify-content: space-between ;
+    align-items: stretch ;
+    gap: 10px ;
+    width: 100% ;
+    box-sizing: border-box ;
+}
+
+    
+.vuelo-columna {
+    flex: 1 ;
+    min-width: 0 ;
+    background-color: #ffffff ;
+    border-radius: 8px ;
+    padding: 12px 6px ;
+    box-sizing: border-box ;
+}
+
+.vuelo-columna h3 {
+    font-size: 12px ;
+    color: #e65c00 ;
+    font-weight: bold ;
+    margin-bottom: 10px ;
+    text-align: center ;
+}
+
+/*ESTRUCTURA COMPACTA DE LAS TABLAS*/
+.mapa-asientos {
+    display: block ;
+    width: 100% ;
+    max-width: 260px;
+    margin: 0 auto ;
+    border-collapse: collapse ;
+}
+
+
+.mapa-asientos thead,
+.mapa-asientos tbody,
+.mapa-asientos tr {
+    display: block ;
+    width: 100% ;
+}
+
+.mapa-asientos tr {
+    display: grid ;
+    grid-template-columns: 24px 28px 28px 28px 16px 28px 28px 28px ;
+    gap: 6px 0 ;
+    justify-content: space-between ; 
+    align-items: center ;
+    margin-bottom: 4px ;
+}
+
+
+.mapa-asientos th,
+.mapa-asientos td {
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    width: 28px ;  
+    height: 28px ; 
+    padding: 0 ;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+
+
+.mapa-asientos th {
+    font-size: 13px ;
+    font-weight: bold ;
+    color: #333333 ;
+    height: auto ; 
+    padding-bottom: 6px ;
+}
+
+
+.mapa-asientos th:first-child,
+.mapa-asientos tr td:first-child {
+    width: 24px ;
+    font-weight: bold ;
+    color: #aaaaaa ;
+    font-size: 12px ;
+    background: transparent ;
+}
+
+
+.mapa-asientos .pasillo,
+.mapa-asientos tr td:nth-child(5),
+.mapa-asientos th:nth-child(5) {
+    width: 16px ;
+    background: transparent ;
+    pointer-events: none ;
+}
+
+.mapa-asientos input[type="checkbox"] {
+    position: absolute ;
+    width: 1px ;
+    height: 1px ;
+    padding: 0;
+    margin: -1px ;
+    overflow: hidden ;
+    clip: rect(0,0,0,0) ;
+    border: 0 ;
+    opacity: 0 ;
+}
+
+.mapa-asientos input[type="checkbox"]:checked + label {
+    background-color: #e9631a ;
+    color: white;
+}
+
+
+.mapa-asientos label,
+.mapa-asientos .disponible,
+.mapa-asientos .ocupado,
+.mapa-asientos .cuadrito {
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    width: 100% ;  
+    height: 100% ; 
+    border-radius: 6px ; 
+    margin: 0 ;
+    cursor: pointer ;
+    box-sizing: border-box ;
+    transition: background-color 0.15s ease ;
+}
+
+
+.mapa-asientos input[type="checkbox"],
+.mapa-asientos input[type="radio"] {
+    display: none ;
+}
+
+
+.mapa-asientos .disponible,
+.mapa-asientos td.disponible label {
+    background-color: #2f5f6e ;
+}
+
+
+.mapa-asientos .ocupado,
+.mapa-asientos td.ocupado,
+.mapa-asientos td.ocupado label {
+    background-color: #e0e0e0 ;
+    cursor: not-allowed ;
+}
+
+
+.mapa-asientos input:checked + label,
+.mapa-asientos .seleccionado {
+    background-color: #e65c00;
+}
+
+
+.divisor-vertical {
+    display: none ;
+}
+
+    
+}
+@media screen and (max-width: 37.5em) { 
+
+    /* ESTRUCTURA DE LA PÁGINA Y GRID PRINCIPAL*/
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        font-size: 11px;    
+    }
+
+    .contenedor-principal {
+        display: flex ;
+        flex-direction: column ; 
+        gap: 15px ;
+        padding: 0 10px ;
+        width: 100% ;
+        box-sizing: border-box ;
+    }
+
+    /* BARRA DE NAVEGACIÓN MOBILE*/
+    .menu {
+        display: flex ;
+        flex-direction: row ;
+        justify-content: space-between ;
+        align-items: center ;
+        padding: 10px 15px ;
+        position: relative ; 
+    }
+
+    
+    .menu-izquierda, .menu-derecha {
+        display: flex ;
+        align-items: center ;
+        gap: 10px ;
+    }
+
+    
+    .iniciar-sesion summary {
+        font-size: 11px ;
+        padding: 4px 8px ;
+    }
+
+    
+    .menu-icono-hamburguesa {
+        display: flex !important;
+        flex-direction: column ;
+        justify-content: space-between ;
+        width: 22px ;
+        height: 16px ;
+        cursor: pointer ;
+        margin: 0 10px !; 
+    }
+
+   
+    .menu-icono-hamburguesa span {
+        display: block ;
+        width: 100%;
+        height: 3px ;
+        background-color: #ffffff ;
+        border-radius: 2px ;
+        transition: all 0.3s ease ;
+    }
+
+    
+    .menu-medio ul {
+        position: absolute ;
+        top: 100% ;
+        left: 0 ;
+        width: 100% ;
+        background-color: #264b56 ; 
+        display: flex ;
+        flex-direction: column ; 
+        gap: 0 !important;
+        padding: 0 ;
+        margin: 0 ;
+        max-height: 0 ; 
+        overflow: hidden ;
+        transition: max-height 0.3s ease-in-out ;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2) ;
+        z-index: 99999 ;
+    }
+
+    
+    .menu-medio ul li {
+        width: 100% ;
+        text-align: center ;
+    }
+
+    .menu-medio ul li a {
+        display: block ;
+        padding: 12px 0 ;
+        width: 100%;
+        color: #ffffff;
+        font-size: 1.1rem ;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) ;
+    }
+
+    .menu-checkbox:checked ~ ul {
+        max-height: 320px !important; 
+    }
+
+    /* Animación interactiva de las líneas para formar la "X" */
+    .menu-checkbox:checked ~ .menu-icono-hamburguesa span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg) ;
+    }
+    .menu-checkbox:checked ~ .menu-icono-hamburguesa span:nth-child(2) {
+        opacity: 0 ;
+    }
+    .menu-checkbox:checked ~ .menu-icono-hamburguesa span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg) ;
+    }
+    /*3. COLUMNA IZQUIERDA: Detalle de Vuelo*/
+    .detalle {
+        width: 100% ;
+        box-sizing: border-box ;
+        padding: 10px ;
+    }
+
+    .vuelo-ruta-linea {
+        display: flex ;
+        flex-direction: row ;
+        justify-content: space-between ;
+        align-items: center ;
+        width: 100% ;
+    }
+
+    /*SECCIÓN CONTENEDORA DE ASIENTOS*/
+    .asientos {
+        width: 100% ;
+        box-sizing: border-box ;
+        padding: 10px 0 ;
+    }
+
+    
+    .cuadrado-asiento {
+        display: flex ;
+        flex-wrap: wrap ; 
+        justify-content: center ;
+        gap: 12px ;
+        margin: 0 auto 15px auto ;
+    }
+
+    .mapas-flex {
+        display: flex;
+        flex-direction: column ; 
+        align-items: center ;
+        gap: 20px ;
+        width: 100% ;
+    }
+
+    .vuelo-columna {
+        width: 100%;
+        max-width: 270px ; 
+        margin: 0 auto;
+        padding: 15px 10px ;
+        background-color: #ffffff ;
+        border-radius: 12px ;
+        box-sizing: border-box ;
+    }
+
+    /*7. TABLAS DE ASIENTOS COMPACTAS PARA MOBILE*/
+    .mapa-asientos {
+        display: block ;
+        width: 100% ;
+        max-width: 250px ;
+        margin: 0 auto ;
+        border-collapse: collapse ;
+    }
+
+    .mapa-asientos thead,
+    .mapa-asientos tbody,
+    .mapa-asientos tr {
+        display: block ;
+        width: 100% ;
+    }
+
+    .mapa-asientos tr {
+        display: grid ;
+        grid-template-columns: 20px 26px 26px 26px 14px 26px 26px 26px ;
+        gap: 5px 0 ; 
+        justify-content: space-between ;
+        align-items: center ;
+        margin-bottom: 4px ;
+    }
+
+    
+    .mapa-asientos th, 
+    .mapa-asientos td {
+        display: flex ;
+        align-items: center ;
+        justify-content: center ;
+        width: 26px ;  
+        height: 26px ;
+        padding: 0 ;
+        margin: 0 ;
+        box-sizing: border-box ;
+    }
+
+    .mapa-asientos th {
+        font-size: 11px ;
+        font-weight: bold ;
+        color: #333333 ;
+        height: auto ;
+        padding-bottom: 4px ;
+    }
+
+    
+    .mapa-asientos th:first-child, 
+    .mapa-asientos tr td:first-child { 
+        width: 20px ; 
+        font-size: 11px ;
+        color: #aaaaaa ;
+        background: transparent ;
+    } 
+
+   
+    .mapa-asientos .pasillo, 
+    .mapa-asientos tr td:nth-child(5),
+    .mapa-asientos th:nth-child(5) { 
+        width: 14px ; 
+        background: transparent ;
+        pointer-events: none ;
+    }
+
+    /* 8. BOTONES DE ASIENTOS CON TAMAÑO PARA MOBILE*/
+    .mapa-asientos label,
+    .mapa-asientos .disponible,
+    .mapa-asientos .ocupado,
+    .mapa-asientos .cuadrito {
+        display: flex ;
+        align-items: center ;
+        justify-content: center ;
+        width: 100% ;  
+        height: 100% ;
+        border-radius: 5px ;
+        margin: 0 ;
+        cursor: pointer ;
+        box-sizing: border-box ;
+    }
+
+    
+    .mapa-asientos input[type="checkbox"],
+    .mapa-asientos input[type="radio"] {
+        display: none ;
+    }
+
+    
+    .mapa-asientos .disponible,
+    .mapa-asientos td.disponible label {
+        background-color: #2f5f6e ;
+    }
+
+    .mapa-asientos .ocupado,
+    .mapa-asientos td.ocupado,
+    .mapa-asientos td.ocupado label {
+        background-color: #e0e0e0 ;
+        cursor: not-allowed ;
+    }
+
+    .mapa-asientos input[type="checkbox"]:checked + label,
+    .mapa-asientos input[type="radio"]:checked + label {
+        background-color: #e65c00 ; 
+        color: white ;
+    }
+
+   /*SECCIÓN RESUMEN */
+    .resumen {
+        display: flex ;
+        flex-direction: column; 
+        gap: 15px ;
+        padding: 1.5em 1.5em 2.5em 1.5em ; 
+        width: 100% ;
+        box-sizing: border-box ;
+    }
+
+    .resumen-precio {
+        width: 100% ; 
+    }
+
+    .boton-continuar {
+        width: 100% ; 
+        padding: 1.2em ;
+        font-size: 1.2rem ;
+        margin-bottom: 10px ; 
+    }
+
+    .divisor-vertical,
+    .detalle-vuelo-info i.fa-plane,
+    .vuelo-info i.text-warning,
+    .vuelo-info i[class*="orange"] {
+        display: none ;
+    }
+    /*FOOTER DEL MOBILE*/
+    
+    .footer {
+        width: 100%;
+        padding: 30px 15px 15px 15px; 
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    
+    .f-suscripcion {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .f-suscripcion h2 {
+        font-size: 1.5rem; 
+        margin-bottom: 10px;
+    }
+
+    .f-suscripcion p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+
+    
+    .divForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 340px;      
+        margin: 0 auto;         
+        gap: 15px;              
+    }
+
+  
+    .divForm input[type="email"],
+    .divForm button#Enviar {
+        width: 100% !important; 
+        box-sizing: border-box;
+        padding: 12px 20px;     
+        text-align: center;
+    }
+
+
+    
+    .f-Menu {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;   
+        text-align: center;     
+        gap: 30px;             
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    
+    .f-section {
+        width: 100%;
+        margin: 0 !important; 
+    }
+
+    .f-section ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .f-section ul li {
+        margin-bottom: 10px;    
+    }
+
+    
+    .f-redes {
+        display: flex;
+        justify-content: center; 
+        gap: 15px;
+        padding: 0;
+    }
+
+
+    /* El Logo de FlyNow en el Footer  */
+    .f-logo {
+        max-width: 140px;       
+        height: auto;
+        margin-top: 10px;       
+    }
+
+
+    /*Copyright / Derechos */
+    .f-Derechos {
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1); 
+        padding-top: 15px;
+    }
+
+    .f-Derechos p {
+        font-size: 0.8rem;      
+        margin: 0;
+    }
+}

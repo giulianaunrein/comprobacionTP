@@ -1,0 +1,87 @@
+
+body {
+  background-color: #f4f6f8;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.form_perfil {
+  background: white;
+  width: 45rem;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+
+.form_perfil h2 {
+ margin-bottom: 0.5rem;
+    color: #1c2b36;
+  font-size: 1.6rem;
+}
+
+
+.form_perfil h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+    color: #1c2b36;
+  border-left: 4px solid #E9631A;
+  padding-left: 0.5rem;
+}
+
+.form_perfil p {
+  
+   margin-bottom: 1rem;
+    color: gray;
+    font-size: 0.9rem;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+    
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
+
+input {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+ 
+
+}
+
+
+
+.genero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rem;
+}
+ 
+
+
+.boton {
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background-color: #E9631A;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  
+}

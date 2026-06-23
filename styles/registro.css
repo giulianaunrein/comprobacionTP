@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    
+  background-image: url(../images/fondo.png);
+  background-size: cover;
+  background-position: top;
+
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #315762;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.logo {
+    font-weight: bold;
+}
+.contenedor{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+.form_registro{
+    background-color: #f5f5f5;
+    width: 25rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+
+.form_registro h2{
+    margin-bottom: 0.5rem;
+    color: #1c2b36;
+}
+
+.form_registro p{
+    font-size: 0.9rem;
+    color: gray;
+    margin-bottom: 1rem;
+}
+
+
+.form_registro label{
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.form_registro input{
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+
+.check{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+button{
+       background: #E9631A;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+}
+
+/* LINK ABAJO */
+.volver-inicio{
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.volver-inicio a{
+    color: orange;
+    text-decoration: none;
+}

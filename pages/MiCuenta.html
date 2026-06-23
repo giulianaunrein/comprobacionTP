@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/estiloMiCuenta.css">
+    <title>Mis Reservas - FlyNow</title>
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+    <section class="menu-izquierda">
+        <a href="../index.html"><img class="logo" src="../images/logo.png" alt="logo" height="35"></a>
+    </section>
+
+    <section class="menu-medio">
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-icono-hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="../pages/vuelos.html">Vuelos</a></li>
+            <li><a href="../pages/ofertas.html">Ofertas</a></li>
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+            <li><a href="../pages/MiCuenta.html">Reservas</a></li>
+            <li><a href="../pages/perfil.html">Perfil</a></li>
+        </ul>
+    </section>
+
+    <section class="menu-derecha">
+        <details class="iniciar-sesion">
+            <summary>¡Hola!</summary>
+            <a href="../index.html" class="cerrar-sesion">Cerrar sesión</a>
+        </details>
+        <a href="InicioSesion.html">
+            <img class="usuario" src="../images/usuario.png" alt="usuario" width="30">
+        </a>
+    </section>
+        </nav>
+    </header>
+
+    <main>
+        <div class="titulo">
+            <h1>Mis Reservas</h1>
+            <p>Revisá el estado de tus vuelos y accedé fácilmente a los detalles de tus reservas</p>
+        </div>
+
+        <div class="contenedor-principal">
+
+            <section class="bloque-informacion">
+
+                <h2>Mis Vuelos Reservados</h2>
+
+                <div class="vuelo-item">
+                    <input type="checkbox" id="vuelo1" class="boton-vuelo">
+                    <label for="vuelo1" class="vuelo-header">
+                        <div class="info-vuelo">
+                            <strong>Buenos Aires — Madrid (MAD)</strong>
+                            <p>10/08/2024 - 20/08/2024</p>
+                        </div>
+                        <div class="precio-seccion">
+                            <span class="precio">$ 1739 USD</span>
+                            <span class="flecha">▼</span>
+                        </div>
+                    </label>
+                    <div class="vuelo-detalle">
+                        <div class="datos-ida">
+                            <p><strong>Ida:</strong> Buenos Aires (BUE) — París (PAR)</p>
+
+                            <div class="horarios-conector">
+                                <span class="hora-bold">05:30</span>
+
+                                <div class="conector-puntos"></div>
+
+                                <span class="hora-bold">
+                                    12:45
+                                </span>
+                            </div>
+
+                            <span class="info-secundaria">
+                                11h 30m · 23/04 11:30
+                            </span>
+                        </div>
+
+                        <div class="datos-vuelta">
+                            <p><strong>Vuelta:</strong> París (PAR) — Buenos Aires (BUE)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vuelo-item">
+                    <input type="checkbox" id="vuelo2" class="boton-vuelo">
+                    <label for="vuelo2" class="vuelo-header">
+                        <div class="info-vuelo">
+                            <strong>Buenos Aires — París</strong>
+                            <p>23/03/2023 - 07/04/2023</p>
+                        </div>
+                        <div class="precio-seccion">
+                            <span class="precio">$ 2100 USD</span>
+                            <span class="flecha">▼</span>
+                        </div>
+                    </label>
+                    <div class="vuelo-detalle">
+                        <div class="datos-ida">
+                            <p><strong>Ida:</strong> Buenos Aires (BUE) — París (PAR)</p>
+
+                            <div class="horarios-conector">
+                                <span class="hora-bold">05:30</span>
+
+                                <div class="conector-puntos"></div>
+
+                                <span class="hora-bold">
+                                    12:45
+                                </span>
+                            </div>
+
+                            <span class="info-secundaria">
+                                11h 30m · 23/04 11:30
+                            </span>
+                        </div>
+
+                        <div class="datos-vuelta">
+                            <p><strong>Vuelta:</strong> París (PAR) — Buenos Aires (BUE)</p>
+
+                            <div class="horarios-conector">
+                                <span class="hora-bold">14:20</span>
+
+                                <div class="conector-puntos"></div>
+
+                                <span class="hora-bold">
+                                    23:10
+                                </span>
+                            </div>
+
+                            <span class="info-secundaria">
+                                12h 50m · 07/04 08:15
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="f-suscripcion">
+            <h2>¡No te pierdas de nada!</h2>
+            <p>Hey! Suscribite a nuestro newsletter para enterarte de todo antes que nadie. Que no se corte!</p>
+
+            <form action="/procesar-datos" method="POST">
+                <div class="divForm">
+
+                    <input placeholder="Ingresá tu mail" type="email" id="mail" name="mail" required="">
+                    <button id="Enviar" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="f-Menu">
+            <div class="f-section">
+                <h2 class="f-titulos">Nosotros</h2>
+                <ul>
+                    <li><a href="../pages/contacto.html">Sobre FlyNow</a></li>
+                    <li><a href="../index.html#faq-section">Preguntas frecuentes</a></li>
+                    <li><a href="../pages/condiciones.html">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
+                    <li><a href="vuelos.html">Vuelos</a></li>
+                    <li><a href="../pages/ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Redes</h2>
+                <ul class="f-redes">
+                    <li><a href="https://www.instagram.com"><img class="iconoRedes" src="../images/redes/instagram.png"
+                                alt="instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img class="iconoRedes" src="../images/redes/facebook.png"
+                                alt="facebook"></a>
+                    </li>
+                    <li><a href="https://x.com/"><img class="iconoRedes" src="../images/redes/x.png"
+                                alt="X ex Twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <img class="f-logo" src="../images/logo.png" alt="FlyNow">
+            </div>
+        </div>
+        <div class="f-Derechos">
+            <p>Copyright © 2010-2026 FlyNow S.A. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+<script src="../js/MiCuenta.js"></script>
+</body>
+
+</html>

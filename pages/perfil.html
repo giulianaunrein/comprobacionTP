@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/perfil.css">
+</head>
+<body>
+
+    <header>
+    <nav class="menu">
+        <section class="menu-izquierda">
+          <a href="../index.html"><img class="logo"  src="../images/logo.png" alt="logo" height="35"></a>
+        </section>
+
+        <section class="menu-medio">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="vuelos.html">Vuelos</a></li>
+            <li><a href="ofertas.html">Ofertas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="MiCuenta.html">Reservas</a></li>
+            <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+        </section>
+
+       <section class="menu-derecha">
+        
+            
+            <details class="iniciar-sesion">
+
+                <summary>
+                    ¡Hola!
+                </summary>
+
+                <a href="../index.html" class="cerrar-sesion">
+                    Cerrar sesión
+                </a>
+
+            </details>
+
+            <a href="InicioSesion.html">
+                <img class="usuario" src="../images/usuario.png" alt="usuario" width="30">
+            </a>
+        </section>
+        </nav>
+    </header>
+    <main class="contenedor">
+        <section class="form_perfil">
+
+            <h2>Mi Perfil</h2>
+
+            <h3>Datos Personales</h3>
+
+            <form>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="Nombre" required>
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" placeholder="Apellido" required>
+
+                <label for="fechaNacimiento">Fecha de nacimiento</label>
+                <input type="date" id="fechaNacimiento" >
+
+                <div class="genero">
+                    <label > Masculino
+                        <input type="radio" name="genero" value="M">
+                    </label>
+
+                    <label> Femenino
+                        <input type="radio" name="genero" value="F">
+                    </label>
+                </div>
+    
+                <h3>Telefonos</h3>
+                <p>Agregá tus teléfonos para que podamos contactarte en caso que ocurra algún cambio.</p>
+                    <label for="pais">Pais De Residencia</label>
+                    <input type="text" id="pais" required>
+
+                    <label for="area">Area</label>
+                    <input type="tel" id="area" required>
+                   
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" required> 
+
+                    <button type="submit" class="boton">Guardar</button>
+                </form> 
+               
+            </section>
+            
+
+        </section>
+    </main>
+
+</body>
+</html>

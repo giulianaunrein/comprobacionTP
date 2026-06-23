@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/detalle_estilo.css">
+    <title>Detalle de Vuelo</title>
+</head>
+<body>
+    <header>
+    <nav class="menu">
+    <section class="menu-izquierda">
+        <a href="../index.html"><img class="logo" src="../images/logo.png" alt="logo" height="35"></a>
+    </section>
+
+    <section class="menu-medio">
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-icono-hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="../pages/vuelos.html">Vuelos</a></li>
+            <li><a href="../pages/ofertas.html">Ofertas</a></li>
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+            <li><a href="../pages/MiCuenta.html">Reservas</a></li>
+            <li><a href="../pages/perfil.html">Perfil</a></li>
+        </ul>
+    </section>
+
+    <section class="menu-derecha">
+        <details class="iniciar-sesion">
+            <summary>¡Hola!</summary>
+            <a href="../index.html" class="cerrar-sesion">Cerrar sesión</a>
+        </details>
+        <a href="InicioSesion.html">
+            <img class="usuario" src="../images/usuario.png" alt="usuario" width="30">
+        </a>
+    </section>
+</nav>
+</header>
+        <main>
+         <div class="titulo">
+                <a href="resultados.html" class="volver"> ← Volver a resultados</a>
+                <h1>Detalle de Vuelo / Selecciona tu asiento</h1> 
+                <p>Revisa los detalles de tu viaje, elige tu asiento y continúa con tu compra.</p>  
+             </div>
+        <div class="contenedor-principal"> 
+           
+            <aside class="detalle"> 
+              <h1>Detalle de vuelo</h1>
+                <section class="tramo-vuelo">
+                    <div class="destino">
+                        <img class="chico" src="../images/avion.svg" class="icono-destino">
+                        <p class="info">Ida: Buenos Aires (EZE) ➔ Madrid (MAD)</p>
+                    </div>
+                
+                    <div class="grafico-vuelo">
+
+                        <div class="punto-partida">
+                             <span class="hora"><strong>12:00</strong></span>
+                             <span class="ciudad">EZE</span>
+                        </div>
+                    
+                        <div class="bloque-grafico">
+                             <span class="duracion-mini">11h 40m</span>
+
+                            <div class="linea">
+                                <span class="circulo"></span>
+                                <div class="linea-horizontal"></div>
+                                <span class="avion-mini"><img class="chico" src="../images/avion.svg" alt="Avión"></span>
+                                <div class="linea-horizontal"></div>
+                                <span class="circulo"></span>
+                            </div>  
+                        </div>
+
+                        <div class="punto-llegada">
+                             <span class="hora"><strong>08:40</strong></span>
+                             <span class="ciudad">MAD</span>
+                        </div>
+
+                    </div>
+                    
+                <ul>
+                    <li><img class="chico icono-vuelo" src="../images/calendario.svg" >   Jue. 20 Abril</li>
+                    <li><img class="chico icono-vuelo" src="../images/tiempo.svg" >  Duración: 11h 40m</li>
+                    <li><img class="chico icono-vuelo" src="../images/avion.svg" >  Sin escalas</li>
+                    <li><img class="chico icono-vuelo"  src="../images/AeroArgentinas.jpg" > Aerolineas Argentinas</li>
+                    <li><img class="chico icono-vuelo" src="../images/ticket.svg" >  Economy</li>
+                </ul>
+                
+                <div class="separador-puntos"></div>
+
+                <section class="tramo-vuelo">
+                    <div class="destino">
+                        <img class="chico icono-destino-vuelta" src="../images/avion.svg" >
+                        <p class="info">Vuelta: Madrid (MAD) ➔ Buenos Aires (EZE) </p>
+                    </div>
+                
+                    <div class="grafico-vuelo">
+
+                        <div class="punto-partida">
+                             <span class="hora"><strong>18:30</strong></span>
+                             <span class="ciudad">MAD</span>
+                        </div>
+                    
+                        <div class="bloque-grafico">
+                             <span class="duracion-mini">11h 10m</span>
+
+                            <div class="linea">
+                                <span class="circulo"></span>
+                                <div class="linea-horizontal"></div>
+                                <span class="avion-mini"><img class="chico"  src="../images/avion.svg" alt="Avión"></span>
+                                <div class="linea-horizontal"></div>
+                                <span class="circulo"></span>
+                            </div>  
+                        </div>
+
+                        <div class="punto-llegada">
+                             <span class="hora"><strong>06:40</strong></span>
+                             <span class="ciudad">EZE</span>
+                        </div>
+
+                    </div>
+                    
+                <ul>
+                    <li><img class="chico icono-vuelo" src="../images/calendario.svg" >   Sab. 30 Abril</li>
+                    <li><img class="chico icono-vuelo" src="../images/tiempo.svg" >  Duración: 11h 10m</li>
+                    <li><img class="chico icono-vuelo" src="../images/avion.svg" >  Sin escalas</li>
+                    <li><img class="chico icono-vuelo" src="../images/AeroArgentinas.jpg" > Aerolineas Argentinas</li>
+                    <li><img class="chico icono-vuelo" src="../images/ticket.svg" >  Economy</li>
+                </ul>
+                <hr>
+                <div class="precio">
+                    <div class="total">Total</div>
+                    <div class="monto">US$ 1.000</div>
+                </div>
+            </aside>
+
+        <section class="asientos">
+            <div class="texto-asiento">
+              <h1>Selecciona tu asiento</h1>
+                <div class="cuadrado-asiento">
+                <div class="cuadrado">
+                    <span class="cuadrito disponible"></span>
+                    <p>Disponible</p>
+                </div>
+                <div class="cuadrado">
+                    <span class="cuadrito ocupado"></span>
+                    <p>Ocupado</p>
+                </div>
+                <div class="cuadrado">
+                    <span class="cuadrito seleccionado"></span>
+                    <p>Seleccionado</p>
+                </div>
+                </div>
+            </div>
+            
+                
+                <div class="mapas-flex">
+                <div class="vuelo-columna">
+                <h3 class="vuelo-titulo">Ida</h3>
+                 <table class="mapa-asientos">
+                <thead>
+                    <tr>
+                    <th></th> 
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th class="pasillo"></th> 
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td class="num-fila">1</td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-1A" class="check-asiento">
+                    <label for="outbound-1A" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-1D" class="check-asiento">
+                    <label for="outbound-1D" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">2</td>
+                    <td class="ocupado"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-2B" class="check-asiento">
+                    <label for="outbound-2B" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-2D" class="check-asiento">
+                    <label for="outbound-2D" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-2E" class="check-asiento">
+                    <label for="outbound-2E" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">3</td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-3D" class="check-asiento">
+                    <label for="outbound-3D" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-3E" class="check-asiento">
+                    <label for="outbound-3E" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">4</td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-4A" class="check-asiento">
+                    <label for="outbound-4A" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-4B" class="check-asiento">
+                    <label for="outbound-4B" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">5</td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-5A" class="check-asiento">
+                    <label for="outbound-5A" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-5D" class="check-asiento">
+                    <label for="outbound-5D" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-5E" class="check-asiento">
+                    <label for="outbound-5E" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-5F" class="check-asiento">
+                    <label for="outbound-5F" class="disponible"></label>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">6</td>
+                    <td class="ocupado"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-6A" class="check-asiento">
+                    <label for="outbound-6A" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-6D" class="check-asiento">
+                    <label for="outbound-6D" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-6E" class="check-asiento">
+                    <label for="outbound-6E" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-6F" class="check-asiento">
+                    <label for="outbound-6F" class="disponible"></label>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">7</td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    <td class="ocupado"></td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">8</td>
+                    <td class="ocupado"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-8B" class="check-asiento">
+                    <label for="outbound-8B" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-8D" class="check-asiento">
+                    <label for="outbound-8D" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-8E" class="check-asiento">
+                    <label for="outbound-8E" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    </tr>
+                    <tr>
+                    <td class="num-fila">9</td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-9A" class="check-asiento">
+                    <label for="outbound-9A" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-9B" class="check-asiento">
+                    <label for="outbound-9B" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-9C" class="check-asiento">
+                    <label for="outbound-9C" class="disponible"></label>
+                    </td>
+                    <td class="pasillo"></td>
+                    <td class="ocupado"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-9E" class="check-asiento">
+                    <label for="outbound-9E" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-9F" class="check-asiento">
+                    <label for="outbound-9F" class="disponible"></label>
+                    </td>
+                    </tr><tr>
+                    <td class="num-fila">10</td>
+                    <td class="ocupado"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-10B" class="check-asiento">
+                    <label for="outbound-10B" class="disponible"></label>
+                    </td>
+                    <td class="ocupado"></td>
+                    <td class="pasillo"></td>
+                    <td class="ocupado"></td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-10E" class="check-asiento">
+                    <label for="outbound-10E" class="disponible"></label>
+                    </td>
+                    <td>
+                    <input type="radio" name="asiento-ida" id="outbound-10F" class="check-asiento">
+                    <label for="outbound-10F" class="disponible"></label>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+
+    <div class="divisor-vertical"></div>
+
+    <div class="vuelo-columna">
+        <h3 class="vuelo-titulo">Vuelta</h3>
+        <table class="mapa-asientos">
+                    <thead>
+                        <tr>
+                        <th></th> 
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th class="pasillo"></th> 
+                        <th>D</th>
+                        <th>E</th>
+                        <th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class="num-fila">1</td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-1B" class="check-asiento">
+                        <label for="lap-1B" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-1C" class="check-asiento">
+                        <label for="lap-1C" class="disponible"></label>
+                        </td>
+                        <td class="pasillo"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-1D" class="check-asiento">
+                        <label for="lap-1D" class="disponible"></label>
+                        </td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">2</td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-2A" class="check-asiento">
+                        <label for="lap-2A" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-2B" class="check-asiento">
+                        <label for="lap-2B" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-2C" class="check-asiento">
+                        <label for="lap-2C" class="disponible"></label>
+                        </td>
+                        <td class="pasillo"></td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-2F" class="check-asiento">
+                        <label for="lap-2F" class="disponible"></label>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">3</td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-3A" class="check-asiento">
+                        <label for="lap-3A" class="disponible"></label>
+                        </td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td class="pasillo"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-3E" class="check-asiento">
+                        <label for="lap-3E" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-3F" class="check-asiento">
+                        <label for="lap-3F" class="disponible"></label>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">4</td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-4C" class="check-asiento">
+                        <label for="lap-4C" class="disponible"></label>
+                        </td>
+                        <td class="pasillo"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-4D" class="check-asiento">
+                        <label for="lap-4D" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-4E" class="check-asiento">
+                        <label for="lap-4E" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-4F" class="check-asiento">
+                        <label for="lap-4F" class="disponible"></label>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">5</td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-5C" class="check-asiento">
+                        <label for="lap-5C" class="disponible"></label>
+                        </td>
+                        <td class="pasillo"></td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">6</td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-6A" class="check-asiento">
+                        <label for="lap-6A" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-6B" class="check-asiento">
+                        <label for="lap-6B" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-6C" class="check-asiento">
+                        <label for="lap-6C" class="disponible"></label>
+                        </td>
+                        <td class="pasillo"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-6E" class="check-asiento">
+                        <label for="lap-6E" class="disponible"></label>
+                        </td>
+                        <td class="ocupado"></td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">7</td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td class="pasillo"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-7D" class="check-asiento">
+                        <label for="lap-7D" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-7E" class="check-asiento">
+                        <label for="lap-7E" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-7F" class="check-asiento">
+                        <label for="lap-7F" class="disponible"></label>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">8</td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-8C" class="check-asiento">
+                        <label for="lap-8C" class="disponible"></label>
+                        </td>
+                        <td class="pasillo"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-8D" class="check-asiento">
+                        <label for="lap-8D" class="disponible"></label>
+                        </td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        </tr>
+                        <tr>
+                        <td class="num-fila">9</td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-9A" class="check-asiento">
+                        <label for="lap-9A" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-9B" class="check-asiento">
+                        <label for="lap-9B" class="disponible"></label>
+                        </td>
+                        <td class="ocupado"></td>
+                        <td class="pasillo"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-9D" class="check-asiento">
+                        <label for="lap-9D" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-9E" class="check-asiento">
+                        <label for="lap-9E" class="disponible"></label>
+                        </td>
+                        <td class="ocupado"></td>
+                        </tr><tr>
+                        <td class="num-fila">10</td>
+                        <td class="ocupado"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-10C" class="check-asiento">
+                        <label for="lap-10C" class="disponible"></label>
+                        </td>
+                        <td class="pasillo"></td>
+                        <td class="ocupado"></td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-10E" class="check-asiento">
+                        <label for="lap-10E" class="disponible"></label>
+                        </td>
+                        <td>
+                        <input type="radio" name="asiento-vuelta" id="lap-10F" class="check-asiento">
+                        <label for="lap-10F" class="disponible"></label>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            <div class="informacion-asiento">
+                <img class="logo-informacion" src="../images/informacion.svg">
+                <p>Los asientos con color gris no están disponibles. Selecciona tu asiento para continuar. </p>
+            </div>
+    </section>
+
+        <section class="resumen">
+            <div class="resumen-precio">
+                <h3>Resumen de precio</h3>
+
+                <div class="item-precio">
+                    <span>1 Adultos </span>
+                    <span class="monto-individual">US$ 1.000</span>
+                </div>
+
+                <div class="item-precio">
+                    <span>Tasas e impuestos </span>
+                    <span class="monto-individual">US$ 100</span>
+                </div>
+            
+
+            <div class="separador-puntos"></div>
+
+             <div class="precio total">
+                <strong>Total</strong>
+                <span class="monto-final">US$ 1.100</span>
+             </div>
+            </div>
+
+            <div class="continuar">
+                 <a href="Checkout.html" class="boton-continuar">Continuar    ➔</a>
+            </div>
+        </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="f-suscripcion">
+            <h2>¡No te pierdas de nada!</h2>
+            <p>Hey! Suscribite a nuestro newsletter para enterarte de todo antes que nadie. Que no se corte!</p>
+
+            <form action="/procesar-datos" method="POST">
+                <div class="divForm">
+                    <!-- <label for="mail">E-mail:</label> -->
+                    <input placeholder="Ingresá tu mail" type="email" id="mail" name="mail" required="">
+                    <button id="send" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="f-Menu">
+            <div class="f-section">
+                <h2 class="f-titulos">Nosotros</h2>
+                <ul>
+                   <li><a href="../pages/contacto.html">Sobre FlyNow</a></li>
+                    <li><a href="../index.html#faq-section">Preguntas frecuentes</a></li>
+                    <li><a href="../pages/condiciones.html">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
+                    <li><a href="../pages/vuelos.html">Vuelos</a></li>
+                    <li><a href="../pages/ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <h2 class="f-titulos">Redes</h2>
+                <ul class="f-redes">
+                    <li><a href="https://www.instagram.com"><img class="iconoRedes" src="../images/redes/instagram.png"
+                                alt="instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img class="iconoRedes" src="../images/redes/facebook.png"
+                                alt="facebook"></a>
+                    </li>
+                    <li><a href="https://x.com/"><img class="iconoRedes" src="../images/redes/x.png"
+                                alt="X ex Twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="f-section">
+                <img class="f-logo" src="../images/logo.png" alt="FlyNow">
+            </div>
+        </div>
+        <div class="f-Derechos">
+            <p>Copyright © 2010-2026 FlyNow S.A. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+    <script src="../js/detalleDeVuelo.js"></script>
+
+</body> 
+</html>
