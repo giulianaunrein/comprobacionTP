@@ -340,27 +340,27 @@ export const vuelos = [
 //  RENDERIZADO DE TARJETAS DE VUELO
 // ─────────────────────────────────────────────
 
-/**
- * Genera el HTML de una tarjeta de vuelo a partir de un objeto del array vuelos.
- * Para viajes "Ida y vuelta" se genera la fila de vuelta como espejo del destino al origen.
- */
 export function generarTarjetaVuelo(vuelo) {
-    const aerolineaSlug = vuelo.aerolinea.toLowerCase().replace(/\s+/g, "-").replace(/[áéíóú]/g, c => ({á:"a",é:"e",í:"i",ó:"o",ú:"u"}[c]));
-    const escalasKey   = vuelo.escalas ? (vuelo.escalas === 1 ? "1escala" : "2escalas") : "directo";
-    const aerolineaKey = aerolineaSlug;
+    const aerolineaSlug = vuelo.aerolinea
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[áéíóú]/g, c => ({ á:"a", é:"e", í:"i", ó:"o", ú:"u" }[c]));
 
-    // Íconos de equipaje: "Mochila" incluida si el vuelo lo indica
-    const tienePersonal = true; // artículo personal siempre
-    const tieneMano     = vuelo.equipajeIncluido === "Mano" || vuelo.equipajeIncluido === "Bodega";
-    const tieneBodega   = vuelo.equipajeIncluido === "Bodega";
+    // "true" booleano se trata como "2+ escalas"; si tiene valor numérico, se usa ese
+    const escalasKey = !vuelo.escalas
+        ? "directo"
+        : vuelo.escalas === 1 ? "1escala" : "2escalas";
 
-    const iconoPersonal = `../images/equipaje/mochila${tienePersonal ? "-color" : ""}.svg`;
-    const iconoMano     = `../images/equipaje/valija${tieneMano ? "-color" : ""}.svg`;
+    const tieneMano   = vuelo.equipajeIncluido === "Mano"   || vuelo.equipajeIncluido === "Bodega";
+    const tieneBodega = vuelo.equipajeIncluido === "Bodega";
+
+    const iconoPersonal = `../images/equipaje/mochila-color.svg`;
+    const iconoMano     = `../images/equipaje/valija${tieneMano   ? "-color" : ""}.svg`;
     const iconoBodega   = `../images/equipaje/maleta${tieneBodega ? "-color" : ""}.svg`;
 
     const logoAerolinea = `../images/aerolineas/${aerolineaSlug}.png`;
+    const escalasTexto  = !vuelo.escalas ? "Directo" : vuelo.escalas === 1 ? "1 escala" : "2+ escalas";
 
-    // Fila de vuelta (solo para "Ida y vuelta")
     const esIdaYVuelta = vuelo.tipoViaje === "Ida y vuelta";
     const filaVuelta = esIdaYVuelta ? `
         <div class="fila">
@@ -371,13 +371,13 @@ export function generarTarjetaVuelo(vuelo) {
                 <div class="tiempo">${vuelo.duracion}</div>
                 <div class="hora"><strong>${vuelo.salida}</strong><span class="ciudad">${vuelo.origen}</span></div>
             </div>
-            <span class="escalas-texto">${vuelo.escalas ? (vuelo.escalas === 1 ? "1 escala" : "2+ escalas") : "Directo"}</span>
+            <span class="escalas-texto">${escalasTexto}</span>
         </div>` : "";
 
     return `
     <article class="tarjeta-vuelo"
         data-precio="${vuelo.precioBase}"
-        data-aerolinea="${aerolineaKey}"
+        data-aerolinea="${aerolineaSlug}"
         data-escalas="${escalasKey}">
 
         <div class="fila">
@@ -388,7 +388,7 @@ export function generarTarjetaVuelo(vuelo) {
                 <div class="tiempo">${vuelo.duracion}</div>
                 <div class="hora"><strong>${vuelo.llegada}</strong><span class="ciudad">${vuelo.destino}</span></div>
             </div>
-            <span class="escalas-texto">${vuelo.escalas ? (vuelo.escalas === 1 ? "1 escala" : "2+ escalas") : "Directo"}</span>
+            <span class="escalas-texto">${escalasTexto}</span>
         </div>
 
         ${filaVuelta}
@@ -406,56 +406,63 @@ export function generarTarjetaVuelo(vuelo) {
     </article>`;
 }
 
-/**
- * Filtra el array de vuelos según los parámetros de búsqueda guardados en sessionStorage
- * y renderiza las tarjetas en el contenedor .opciones-vuelos.
- */
 export function renderizarVuelos() {
     const contenedor = document.querySelector(".opciones-vuelos");
     if (!contenedor) return;
 
     const busquedaGuardada = sessionStorage.getItem("busquedaVuelo");
-    const busqueda = busquedaGuardada ? JSON.parse(busquedaGuardada) : {};
+    const busqueda = busquedaGuardada ? JSON.parse(busquedaGuardada) : null;
 
-    let vuelosFiltrados = vuelos;
+    // Sin búsqueda guardada → mostrar todos
+    if (!busqueda) {
+        contenedor.innerHTML = vuelos.map(generarTarjetaVuelo).join("");
+        return;
+    }
 
-    // Filtrar por origen (flexible: contiene el texto)
+    let vuelosFiltrados = [...vuelos];
+
+    // Filtrar por origen: coincidencia parcial, sin tildes, sin mayúsculas
     if (busqueda.origen) {
-        const origen = busqueda.origen.toLowerCase().trim();
+        const origen = normalizar(busqueda.origen);
         vuelosFiltrados = vuelosFiltrados.filter(v =>
-            v.origen.toLowerCase().includes(origen)
+            normalizar(v.origen).includes(origen)
         );
     }
 
-    // Filtrar por destino
+    // Filtrar por destino: coincidencia parcial
     if (busqueda.destino) {
-        const destino = busqueda.destino.toLowerCase().trim();
+        const destino = normalizar(busqueda.destino);
         vuelosFiltrados = vuelosFiltrados.filter(v =>
-            v.destino.toLowerCase().includes(destino)
+            normalizar(v.destino).includes(destino)
         );
     }
 
-    // Filtrar por tipo de viaje
+    // Filtrar por tipo de viaje solo si viene informado
     if (busqueda.tipoVuelo) {
+        const tipo = normalizar(busqueda.tipoVuelo);
         vuelosFiltrados = vuelosFiltrados.filter(v =>
-            v.tipoViaje.toLowerCase().includes(busqueda.tipoVuelo.toLowerCase())
+            normalizar(v.tipoViaje).includes(tipo)
         );
     }
 
-    // Filtrar por clase
-    if (busqueda.clase) {
-        vuelosFiltrados = vuelosFiltrados.filter(v =>
-            !v.clase || v.clase.toLowerCase().includes(busqueda.clase.toLowerCase())
-        );
-    }
-
-    // Renderizar
+    // Renderizar o mostrar mensaje
     if (vuelosFiltrados.length === 0) {
-        contenedor.innerHTML = `<p style="text-align:center; padding:2em; color:#777; font-size:1.1em;">
-            No se encontraron vuelos para tu búsqueda.
-        </p>`;
+        const destino = busqueda.destino || "ese destino";
+        contenedor.innerHTML = `
+            <p id="sin-resultados" style="text-align:center; padding:3em; color:#777; font-size:1.1em;">
+                No encontramos vuelos disponibles hacia <strong>${destino}</strong>.<br>
+                Probá con otro destino o modificá los filtros.
+            </p>`;
         return;
     }
 
     contenedor.innerHTML = vuelosFiltrados.map(generarTarjetaVuelo).join("");
+}
+
+// Normaliza texto: minúsculas + sin tildes para comparaciones flexibles
+function normalizar(texto) {
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 }
