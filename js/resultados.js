@@ -1,6 +1,4 @@
-import { renderizarVuelos } from "js/data/ArrayVuelos.js";
-// NOTA: si el archivo se llama "ArrayVuelos.js" y está en la carpeta "js/", esta ruta es correcta.
-// Si está en otra ubicación, ajustá la ruta acá.
+import { renderizarVuelos } from "./data/ArrayVuelos.js";
 
 
 // ─── PRECARGAR FORMULARIO LATERAL CON LA BÚSQUEDA ───────────
