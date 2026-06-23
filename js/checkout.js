@@ -1,46 +1,26 @@
-// ============================================================
-// checkout.js
-// Lógica de la página de Checkout (FlyNow)
-// ============================================================
-
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ------------------------------------------------------------------
-    // 1. ESTADO GLOBAL DEL CHECKOUT
-    // ------------------------------------------------------------------
     const tarjetaResumen = document.getElementById('resumen-vuelo-card');
-
     if (!tarjetaResumen) {
-        console.error(
-            'checkout.js: no se encontró el elemento con id="resumen-vuelo-card". ' +
-            'Verificá que estás usando la última versión de checkout.html, ' +
-            'que tiene ese id en la sección "Resumen de vuelo".'
-        );
+        console.error('checkout.js: no se encontró resumen-vuelo-card');
         return;
     }
 
-    // Datos del vuelo definidos directamente en JS (más robusto que leerlos
-    // desde un atributo data-* en el HTML, que es fácil de romper al copiar).
-    // Si en el futuro estos datos vienen de una API, alcanza con reemplazar
-    // este objeto por el resultado del fetch.
-    const vueloData = {
+    // ← LEE EL VUELO GUARDADO EN localStorage (puesto por detalleDestino.js)
+    const vueloGuardado = JSON.parse(localStorage.getItem("vueloSeleccionado"));
+
+    const vueloData = vueloGuardado ?? {
         ida: {
             origen: "Buenos Aires (EZE)",
-            destino: "Madrid (MAD)",
-            fecha: "10/08/2026",
-            horario: "12:00 - 08:40 (+1)",
-            escala: "1 escala en Lima (LIM) — 11h 40m"
+            destino: "Sin destino",
+            fecha: "A confirmar",
+            horario: "-",
+            escala: "-"
         },
-        vuelta: {
-            origen: "Madrid (MAD)",
-            destino: "Buenos Aires (EZE)",
-            fecha: "20/08/2026",
-            horario: "18:30 - 06:40 (+1)",
-            escala: "1 escala en Lima (LIM) — 11h 10m"
-        },
+        vuelta: null,
         pasajeros: 1,
-        precioBase: 1739,
-        impuestos: 100
+        precioBase: 0,
+        impuestos: 0
     };
 
     const estado = {
@@ -53,12 +33,22 @@ document.addEventListener('DOMContentLoaded', function () {
         return 'US$ ' + numero.toLocaleString('es-AR', { maximumFractionDigits: 0 });
     };
 
-    // ------------------------------------------------------------------
-    // 2. RENDERIZADO DINÁMICO DEL RESUMEN DE VUELO
-    // ------------------------------------------------------------------
+    // RENDERIZADO DEL RESUMEN
     function renderizarItinerario() {
         const contenedor = document.getElementById('resumen-itinerario');
         const { ida, vuelta } = estado.vuelo;
+
+        const htmlVuelta = vuelta ? `
+            <div class="separador-puntos"></div>
+            <section class="tramo-vuelo">
+                <p class="itinerario"><strong>Vuelta:</strong> ${vuelta.origen} ➔ ${vuelta.destino}</p>
+                <div class="info-salida">
+                    <span><img src="../images/calendario.svg" alt=""> ${vuelta.fecha}</span>
+                    <span><img src="../images/tiempo.svg" alt=""> ${vuelta.horario}</span>
+                </div>
+                <p class="detalle-escala">${vuelta.escala}</p>
+            </section>
+        ` : '';
 
         contenedor.innerHTML = `
             <section class="tramo-vuelo">
@@ -69,15 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <p class="detalle-escala">${ida.escala}</p>
             </section>
-            <div class="separador-puntos"></div>
-            <section class="tramo-vuelo">
-                <p class="itinerario"><strong>Vuelta:</strong> ${vuelta.origen} ➔ ${vuelta.destino}</p>
-                <div class="info-salida">
-                    <span><img src="../images/calendario.svg" alt=""> ${vuelta.fecha}</span>
-                    <span><img src="../images/tiempo.svg" alt=""> ${vuelta.horario}</span>
-                </div>
-                <p class="detalle-escala">${vuelta.escala}</p>
-            </section>
+            ${htmlVuelta}
         `;
     }
 
@@ -131,9 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     renderizarResumenCompleto();
 
-    // ------------------------------------------------------------------
-    // 3. VALIDACIÓN DE DATOS DEL PASAJERO
-    // ------------------------------------------------------------------
+    // VALIDACIÓN DEL PASAJERO
     const campos = {
         full_name: {
             input: document.getElementById('full_name'),
@@ -159,8 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
             error: document.getElementById('error_passenger_email'),
             validar: (valor) => {
                 if (!valor.trim()) return 'El correo electrónico es obligatorio.';
-                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!regexEmail.test(valor.trim())) return 'Ingresá un correo electrónico válido.';
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor.trim())) return 'Ingresá un correo electrónico válido.';
                 return '';
             }
         },
@@ -178,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function validarCampo(clave) {
         const campo = campos[clave];
         const mensaje = campo.validar(campo.input.value);
-
         if (mensaje) {
             campo.input.classList.add('campo-invalido');
             campo.error.textContent = mensaje;
@@ -191,29 +169,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     Object.keys(campos).forEach((clave) => {
-        const campo = campos[clave];
-        campo.input.addEventListener('input', () => validarCampo(clave));
-        campo.input.addEventListener('blur', () => validarCampo(clave));
+        campos[clave].input.addEventListener('input', () => validarCampo(clave));
+        campos[clave].input.addEventListener('blur', () => validarCampo(clave));
     });
 
     function validarDatosPasajero() {
         let todoValido = true;
         Object.keys(campos).forEach((clave) => {
-            const valido = validarCampo(clave);
-            if (!valido) todoValido = false;
+            if (!validarCampo(clave)) todoValido = false;
         });
         return todoValido;
     }
 
-    // ------------------------------------------------------------------
-    // 4. MÉTODO DE PAGO: actualización visual dinámica
-    // ------------------------------------------------------------------
+    // MÉTODO DE PAGO
     const radiosMetodoPago = document.querySelectorAll('input[name="metodo_pago"]');
     const metodoHeaders = document.querySelectorAll('.metodo-header');
 
     function actualizarSeleccionMetodoPago() {
         metodoHeaders.forEach((header) => header.classList.remove('metodo-seleccionado'));
-
         radiosMetodoPago.forEach((radio) => {
             if (radio.checked) {
                 const headerAsociado = document.querySelector(`label[for="${radio.id}"]`);
@@ -225,7 +198,6 @@ document.addEventListener('DOMContentLoaded', function () {
     radiosMetodoPago.forEach((radio) => {
         radio.addEventListener('change', actualizarSeleccionMetodoPago);
     });
-
     actualizarSeleccionMetodoPago();
 
     function obtenerMetodoPagoSeleccionado() {
@@ -233,9 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return seleccionado ? seleccionado.value : null;
     }
 
-    // ------------------------------------------------------------------
-    // 5. CUPÓN DE DESCUENTO
-    // ------------------------------------------------------------------
+    // CUPÓN DE DESCUENTO
     const cuponesValidos = {
         'FLYNOW10': 10,
         'VERANO15': 15,
@@ -248,13 +218,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function aplicarCupon() {
         const codigo = inputCupon.value.trim().toUpperCase();
-
         if (!codigo) {
             errorCupon.textContent = 'Ingresá un código de cupón.';
             errorCupon.classList.remove('cupon-exito');
             return;
         }
-
         if (cuponesValidos[codigo]) {
             estado.descuentoPorcentaje = cuponesValidos[codigo];
             estado.cuponAplicado = codigo;
@@ -269,7 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
             errorCupon.textContent = 'El cupón ingresado no es válido.';
             errorCupon.classList.remove('cupon-exito');
         }
-
         renderizarPrecios();
         actualizarTotales();
     }
@@ -283,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
         botonCupon.dataset.aplicado = 'false';
         errorCupon.textContent = '';
         errorCupon.classList.remove('cupon-exito');
-
         renderizarPrecios();
         actualizarTotales();
     }
@@ -303,17 +269,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ------------------------------------------------------------------
-    // 6. VALIDACIÓN ESPECÍFICA SEGÚN MÉTODO DE PAGO
-    // ------------------------------------------------------------------
+    // VALIDACIÓN MÉTODO DE PAGO
     function validarMetodoPago() {
         const metodo = obtenerMetodoPagoSeleccionado();
-
         if (metodo === 'tarjeta') {
             const numero = document.getElementById('card_number').value.trim();
             const vencimiento = document.getElementById('expiration').value.trim();
             const cvv = document.getElementById('cvv').value.trim();
-
             if (!numero || !vencimiento || !cvv) {
                 alert('Completá todos los datos de la tarjeta para continuar.');
                 return false;
@@ -331,7 +293,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return false;
             }
         }
-
         if (metodo === 'paypal') {
             const emailPaypal = document.querySelector('.datos.paypal input[type="email"]').value.trim();
             if (!emailPaypal) {
@@ -339,16 +300,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 return false;
             }
         }
-
-        // Transferencia bancaria no requiere datos adicionales del usuario
         return true;
     }
 
-    // ------------------------------------------------------------------
-    // 7. BOTÓN "PAGAR": validación general antes de redirigir
-    // ------------------------------------------------------------------
+    // BOTÓN PAGAR
     const botonPagar = document.getElementById('btn-pagar');
-
     botonPagar.addEventListener('click', function () {
         const datosValidos = validarDatosPasajero();
         const pagoValido = validarMetodoPago();
@@ -357,12 +313,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.campo-invalido')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             return;
         }
+        if (!pagoValido) return;
 
-        if (!pagoValido) {
-            return;
-        }
-
-        // Si todo es válido, redirige a la página de confirmación
         window.location.href = 'MiCuenta.html';
     });
 
