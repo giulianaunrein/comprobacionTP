@@ -1,5 +1,6 @@
-
-import { renderizarVuelos } from "../js/ArrayVuelos.js";
+import { renderizarVuelos } from "data/ArrayVuelos.js";
+// NOTA: si el archivo se llama "ArrayVuelos.js" y está en la carpeta "js/", esta ruta es correcta.
+// Si está en otra ubicación, ajustá la ruta acá.
 
 
 // ─── PRECARGAR FORMULARIO LATERAL CON LA BÚSQUEDA ───────────
@@ -10,10 +11,10 @@ function precargarFormularioBusqueda() {
     const busqueda = JSON.parse(busquedaGuardada);
 
     // Selectores igual que el resultados-render.js original
-    const inputOrigen  = document.querySelector(".contenedor-viaje .origenydestino:nth-child(1) input");
-    const inputDestino = document.querySelector(".contenedor-viaje .origenydestino:nth-child(3) input");
-    const inputFechaIda    = document.querySelector(".contenedor-fechas .fecha:nth-child(1) input");
-    const inputFechaVuelta = document.querySelector(".contenedor-fechas .fecha:nth-child(3) input");
+    const inputOrigen  = document.querySelector(".contenedor-viaje .origenydestino:first-child input");
+    const inputDestino = document.querySelector(".contenedor-viaje .origenydestino:last-child input");
+    const inputFechaIda    = document.querySelector(".contenedor-fechas .fecha:first-child input");
+    const inputFechaVuelta = document.querySelector(".contenedor-fechas .fecha:last-child input");
     const inputPasajeros   = document.getElementById("passengers");
     const selectClase      = document.getElementById("select-clase");
 
@@ -250,9 +251,9 @@ function actualizarPreciosConEquipaje() {
 
 document.addEventListener("DOMContentLoaded", () => {
     precargarFormularioBusqueda();
-    renderizarVuelos();
+    renderizarVuelos();          // genera las tarjetas en el DOM
     inicializarFiltros();
     inicializarRangoPrecio();
     aplicarFiltros();
-    inicializarBotonesComprar();
+    inicializarBotonesComprar(); // debe ir DESPUÉS de renderizarVuelos para que las tarjetas ya existan
 });
