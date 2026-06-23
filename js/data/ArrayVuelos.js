@@ -421,7 +421,9 @@ export function renderizarVuelos() {
 
     let vuelosFiltrados = [...vuelos];
 
-    // Filtrar por origen: coincidencia parcial, sin tildes, sin mayúsculas
+    // Solo filtrar por origen y destino (busqueda parcial, sin tildes ni mayusculas).
+    // No se filtra por tipoVuelo ni clase porque los valores del sessionStorage
+    // no coinciden con los del array; esos filtros son del panel lateral.
     if (busqueda.origen) {
         const origen = normalizar(busqueda.origen);
         vuelosFiltrados = vuelosFiltrados.filter(v =>
@@ -429,19 +431,10 @@ export function renderizarVuelos() {
         );
     }
 
-    // Filtrar por destino: coincidencia parcial
     if (busqueda.destino) {
         const destino = normalizar(busqueda.destino);
         vuelosFiltrados = vuelosFiltrados.filter(v =>
             normalizar(v.destino).includes(destino)
-        );
-    }
-
-    // Filtrar por tipo de viaje solo si viene informado
-    if (busqueda.tipoVuelo) {
-        const tipo = normalizar(busqueda.tipoVuelo);
-        vuelosFiltrados = vuelosFiltrados.filter(v =>
-            normalizar(v.tipoViaje).includes(tipo)
         );
     }
 
