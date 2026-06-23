@@ -8,19 +8,31 @@ function precargarFormularioBusqueda() {
     if (!busquedaGuardada) return;
     const busqueda = JSON.parse(busquedaGuardada);
 
-    // Selectores igual que el resultados-render.js original
-    const inputOrigen  = document.querySelector(".contenedor-viaje .origenydestino:first-child input");
-    const inputDestino = document.querySelector(".contenedor-viaje .origenydestino:last-child input");
+    const inputOrigen      = document.querySelector(".contenedor-viaje .origenydestino:first-child input");
+    const inputDestino     = document.querySelector(".contenedor-viaje .origenydestino:last-child input");
     const inputFechaIda    = document.querySelector(".contenedor-fechas .fecha:first-child input");
     const inputFechaVuelta = document.querySelector(".contenedor-fechas .fecha:last-child input");
     const inputPasajeros   = document.getElementById("passengers");
     const selectClase      = document.getElementById("select-clase");
 
-    if (inputOrigen      && busqueda.origen)      inputOrigen.value      = busqueda.origen;
-    if (inputDestino     && busqueda.destino)     inputDestino.value     = busqueda.destino;
-    if (inputFechaIda    && busqueda.fechaIda)    inputFechaIda.value    = busqueda.fechaIda;
-    if (inputFechaVuelta && busqueda.fechaVuelta) inputFechaVuelta.value = busqueda.fechaVuelta;
-    if (inputPasajeros   && busqueda.pasajeros)   inputPasajeros.value   = busqueda.pasajeros;
+    if (inputOrigen    && busqueda.origen)    inputOrigen.value    = busqueda.origen;
+    if (inputDestino   && busqueda.destino)   inputDestino.value   = busqueda.destino;
+    if (inputFechaIda  && busqueda.fechaIda)  inputFechaIda.value  = busqueda.fechaIda;
+    if (inputPasajeros && busqueda.pasajeros) inputPasajeros.value = busqueda.pasajeros;
+
+    // Si es "Solo ida", limpiar y deshabilitar el campo de fecha vuelta
+    const esSoloIda = busqueda.tipoVuelo && busqueda.tipoVuelo.toLowerCase().includes("solo");
+    if (inputFechaVuelta) {
+        if (esSoloIda) {
+            inputFechaVuelta.value    = "";
+            inputFechaVuelta.disabled = true;
+            inputFechaVuelta.style.opacity = "0.5";
+        } else {
+            if (busqueda.fechaVuelta) inputFechaVuelta.value = busqueda.fechaVuelta;
+            inputFechaVuelta.disabled = false;
+            inputFechaVuelta.style.opacity = "1";
+        }
+    }
 
     if (selectClase && busqueda.clase) {
         const match = Array.from(selectClase.options).find(
@@ -33,7 +45,7 @@ function precargarFormularioBusqueda() {
     const botones = document.querySelectorAll(".tipo-vuelo button");
     if (busqueda.tipoVuelo && botones.length === 2) {
         botones.forEach(b => b.classList.remove("activo"));
-        botones[busqueda.tipoVuelo.toLowerCase().includes("solo") ? 1 : 0].classList.add("activo");
+        botones[esSoloIda ? 1 : 0].classList.add("activo");
     }
 }
 
