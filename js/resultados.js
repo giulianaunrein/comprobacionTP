@@ -1,4 +1,4 @@
-import { renderizarVuelos } from "data/ArrayVuelos.js";
+import { renderizarVuelos } from "js/data/ArrayVuelos.js";
 // NOTA: si el archivo se llama "ArrayVuelos.js" y está en la carpeta "js/", esta ruta es correcta.
 // Si está en otra ubicación, ajustá la ruta acá.
 
