@@ -127,6 +127,7 @@ if (destinoEncontrado) {
     const vuelosDestino = vuelos.filter(
         item => item.destino.toLowerCase() === nombreBuscado?.toLowerCase()
     );
+    sessionStorage.setItem("vuelosDelDestino", JSON.stringify(vuelosDelDestino));
 
     if (vuelosDestino.length > 0) {
         contenedor.innerHTML = vuelosDestino
