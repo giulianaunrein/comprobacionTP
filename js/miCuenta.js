@@ -41,7 +41,14 @@ function crearVueloItem(reserva, index) {
         </div>
     `;
  
-    // detalle: tramo de ida y vuelta
+    // detalle: tramo de ida y vuelta (la vuelta es opcional, ej. "Solo ida")
+    const htmlVuelta = reserva.vuelta ? `
+        <div class="datos-vuelta">
+            <p><strong>Vuelta:</strong> ${reserva.vuelta.origenNombre} (${reserva.vuelta.origenCodigo}) — ${reserva.vuelta.destinoNombre} (${reserva.vuelta.destinoCodigo})</p>
+            ${crearBloqueHorario(reserva.vuelta)}
+        </div>
+    ` : '';
+
     const detalle = document.createElement("div");
     detalle.className = "vuelo-detalle";
     detalle.innerHTML = `
@@ -49,10 +56,7 @@ function crearVueloItem(reserva, index) {
             <p><strong>Ida:</strong> ${reserva.ida.origenNombre} (${reserva.ida.origenCodigo}) — ${reserva.ida.destinoNombre} (${reserva.ida.destinoCodigo})</p>
             ${crearBloqueHorario(reserva.ida)}
         </div>
-        <div class="datos-vuelta">
-            <p><strong>Vuelta:</strong> ${reserva.vuelta.origenNombre} (${reserva.vuelta.origenCodigo}) — ${reserva.vuelta.destinoNombre} (${reserva.vuelta.destinoCodigo})</p>
-            ${crearBloqueHorario(reserva.vuelta)}
-        </div>
+        ${htmlVuelta}
     `;
  
     item.appendChild(checkbox);
