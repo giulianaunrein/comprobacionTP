@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // ─── VERIFICAR LOGIN ─────────────────────────────────────────
+    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+    if (!usuarioLogueado) {
+        // Guardar la página actual para volver después del login
+        sessionStorage.setItem("redirigirDespuesLogin", window.location.href);
+        window.location.href = "InicioSesion.html";
+        return;
+    }
+
     const tarjetaResumen = document.getElementById('resumen-vuelo-card');
     if (!tarjetaResumen) {
         console.error('checkout.js: no se encontró resumen-vuelo-card');
@@ -7,9 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Lee de sessionStorage (puesto por detalleVuelo.js)
-    
     const vueloGuardado = JSON.parse(sessionStorage.getItem("vueloSeleccionado"));
-console.log("VUELO GUARDADO:", vueloGuardado);
     // Adapta la estructura del objeto al formato que usa el checkout
     function adaptarVuelo(v) {
         if (!v) return null;
@@ -141,6 +148,12 @@ console.log("VUELO GUARDADO:", vueloGuardado);
     }
 
     renderizarResumenCompleto();
+
+    // ─── PRE-RELLENAR DATOS DEL USUARIO LOGUEADO ─────────────────
+    const inputNombre = document.getElementById('full_name');
+    const inputEmail  = document.getElementById('passenger_email');
+    if (inputNombre && usuarioLogueado.nombre) inputNombre.value = usuarioLogueado.nombre;
+    if (inputEmail  && usuarioLogueado.email)  inputEmail.value  = usuarioLogueado.email;
 
     // VALIDACIÓN DEL PASAJERO
     const campos = {

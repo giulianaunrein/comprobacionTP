@@ -39,7 +39,14 @@ mensaje.textContent = "Inicio de sesión exitoso";
 mensaje.style.color = "green";
 
 setTimeout(() => {
-    window.location.href = "../index.html";
+    // Si vino desde checkout, volver ahí; si no, ir al inicio
+    const redirigir = sessionStorage.getItem("redirigirDespuesLogin");
+    if (redirigir) {
+        sessionStorage.removeItem("redirigirDespuesLogin");
+        window.location.href = redirigir;
+    } else {
+        window.location.href = "../index.html";
+    }
 }, 1500);
 
 })
