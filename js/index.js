@@ -25,11 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const tipoVueloText = radioTipo ? radioTipo.parentElement.textContent.trim().toLowerCase() : "ida y vuelta";
 
     if (inputVuelta) {
-      // Si el texto del tipo de vuelo NO incluye la palabra "vuelta" (ej. "Solo ida" o "Ida")
       if (!tipoVueloText.includes("vuelta")) {
         inputVuelta.disabled = true;
-        inputVuelta.value = ""; // Limpiamos el valor para no enviar una fecha residual
-        inputVuelta.style.opacity = "0.5"; // Efecto visual de deshabilitado
+        inputVuelta.value = "";
+        inputVuelta.style.opacity = "0.5";
       } else {
         inputVuelta.disabled = false;
         inputVuelta.style.opacity = "1";
@@ -37,16 +36,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Escuchar cambios en los botones de tipo de vuelo
   radioTipos.forEach(radio => {
     radio.addEventListener("change", actualizarEstadoVuelta);
   });
 
-  // Ejecutar al cargar la página por si el formulario inicia con "Solo ida" preseleccionado
   actualizarEstadoVuelta();
 
 
-  // --- 2. Manejo del Envío del Formulario ---
+  // --- 2. Validación de origen (solo Buenos Aires) ---
+  const ORIGENES_VALIDOS = [
+    "buenos aires", "bs as", "bsas", "bs. as.", "caba",
+    "ciudad autonoma de buenos aires", "eze", "ezeiza", "argentina"
+  ];
+
+  function normalizar(texto) {
+    return (texto || "").toString().trim().toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function esOrigenValido(texto) {
+    const norm = normalizar(texto);
+    if (!norm) return false;
+    return ORIGENES_VALIDOS.some(o => norm.includes(o) || o.includes(norm));
+  }
+
+
+  // --- 3. Manejo del Envío del Formulario ---
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -68,6 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Validaciones básicas de campos vacíos
     if (!origen || !destino || !ida || !pasajeros) {
       if (mensaje) mensaje.textContent = "❌ Completá todos los campos obligatorios";
+      return;
+    }
+
+    // Validación de origen: solo Buenos Aires
+    if (!esOrigenValido(origen)) {
+      if (mensaje) mensaje.textContent = "❌ Actualmente solo operamos vuelos desde Buenos Aires";
       return;
     }
 
@@ -99,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
       origen,
       destino,
       fechaIda: ida,
-      // Si la fecha de vuelta está deshabilitada, guardamos un string vacío
       fechaVuelta: inputVuelta && !inputVuelta.disabled ? vuelta : "",
       pasajeros: cant,
       clase,
