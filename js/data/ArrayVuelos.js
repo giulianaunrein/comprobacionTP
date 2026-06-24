@@ -453,6 +453,22 @@ const codigosAeropuerto = {
 
 const ORIGEN_DEFAULT = { ciudad: "Buenos Aires, Argentina", codigo: "EZE" };
 
+// El sistema solo opera vuelos que SALEN de Buenos Aires. Estas son las
+// formas válidas en que un usuario podría haber escrito ese origen.
+const ORIGENES_VALIDOS = [
+    "buenos aires", "bs as", "bsas", "bs. as.", "caba",
+    "ciudad autonoma de buenos aires", "eze", "ezeiza", "argentina"
+];
+
+// Devuelve true si el texto ingresado como origen corresponde a Buenos Aires.
+// Si el campo viene vacío, se considera válido (no filtramos por algo que
+// el usuario no completó).
+function esOrigenValido(textoOrigen) {
+    const norm = normalizar(textoOrigen);
+    if (!norm) return true;
+    return ORIGENES_VALIDOS.some(o => norm.includes(o) || o.includes(norm));
+}
+
 function obtenerCodigo(nombreDestino) {
     return codigosAeropuerto[nombreDestino] || nombreDestino.substring(0, 3).toUpperCase();
 }
@@ -555,7 +571,9 @@ function buscarDestino(textoBuscado) {
     }) || null;
 }
 
-export function obtenerVuelosPorDestino(textoDestino, cantidad = 6) {
+export function obtenerVuelosPorDestino(textoDestino, cantidad = 6, textoOrigen = "") {
+    if (!esOrigenValido(textoOrigen)) return { destino: null, vuelos: [], origenInvalido: true };
+
     const destinoEncontrado = buscarDestino(textoDestino);
     if (!destinoEncontrado) return { destino: null, vuelos: [] };
     return { destino: destinoEncontrado, vuelos: generarVuelosParaDestino(destinoEncontrado, cantidad) };
@@ -633,7 +651,15 @@ export function renderizarVuelos() {
         return;
     }
 
-    const resultado = obtenerVuelosPorDestino(busqueda.destino, 8);
+    const resultado = obtenerVuelosPorDestino(busqueda.destino, 8, busqueda.origen);
+
+    if (resultado.origenInvalido) {
+        contenedor.innerHTML = `
+            <div class="sin-resultados">
+                <p>No encontramos vuelos desde "<strong>${busqueda.origen}</strong>". Actualmente todos nuestros vuelos parten desde Buenos Aires.</p>
+            </div>`;
+        return;
+    }
 
     if (!resultado.destino) {
         contenedor.innerHTML = `
