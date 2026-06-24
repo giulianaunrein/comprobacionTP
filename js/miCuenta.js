@@ -1,61 +1,3 @@
-const reservas = [
-    {
-        origenCiudad: "Buenos Aires",
-        destinoCiudad: "Madrid",
-        destinoCodigo: "MAD",
-        fechaInicio: "10/08/2024",
-        fechaFin: "20/08/2024",
-        precio: 1739,
-        moneda: "USD",
-        ida: {
-            origenNombre: "Buenos Aires",
-            origenCodigo: "BUE",
-            destinoNombre: "París",
-            destinoCodigo: "PAR",
-            horaSalida: "05:30",
-            horaLlegada: "12:45",
-            duracion: "11h 30m",
-            fecha: "23/04 11:30"
-        },
-        vuelta: {
-            origenNombre: "París",
-            origenCodigo: "PAR",
-            destinoNombre: "Buenos Aires",
-            destinoCodigo: "BUE"
-           
-        }
-    },
-    {
-        origenCiudad: "Buenos Aires",
-        destinoCiudad: "París",
-        destinoCodigo: "PAR",
-        fechaInicio: "23/03/2023",
-        fechaFin: "07/04/2023",
-        precio: 2100,
-        moneda: "USD",
-        ida: {
-            origenNombre: "Buenos Aires",
-            origenCodigo: "BUE",
-            destinoNombre: "París",
-            destinoCodigo: "PAR",
-            horaSalida: "05:30",
-            horaLlegada: "12:45",
-            duracion: "11h 30m",
-            fecha: "23/04 11:30"
-        },
-        vuelta: {
-            origenNombre: "París",
-            origenCodigo: "PAR",
-            destinoNombre: "Buenos Aires",
-            destinoCodigo: "BUE",
-            horaSalida: "14:20",
-            horaLlegada: "23:10",
-            duracion: "12h 50m",
-            fecha: "07/04 08:15"
-        }
-    }
-];
- 
 //Construye el bloque "horarios" (ida o vuelta) si hay datos
 function crearBloqueHorario(tramo) {
     if (!tramo.horaSalida) return "";
@@ -156,9 +98,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // Reservas hechas realmente por el usuario en el checkout (persisten en localStorage)
     const reservasGuardadas = JSON.parse(localStorage.getItem("reservasGuardadas")) || [];
 
-    // Se muestran primero las reservas reales del usuario, y al final las de ejemplo
-    // (si no querés ver las de ejemplo, cambiá la línea siguiente por: const todasLasReservas = reservasGuardadas;)
-    const todasLasReservas = [...reservasGuardadas, ...reservas];
-
-    renderizarReservas(todasLasReservas);
+    renderizarReservas(reservasGuardadas);
 });
