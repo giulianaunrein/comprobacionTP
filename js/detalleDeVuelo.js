@@ -1,12 +1,14 @@
-
-
 const IMPUESTOS = 100;
 
 let datoVuelo = null;
 let busqueda  = null;
 
-// Asientos seleccionados: arrays para soportar múltiples pasajeros
+// Asientos seleccionados: arrays para guardar los IDs (se usan en el resumen)
 const seleccion = { ida: [], vuelta: [] };
+
+// Contadores de asientos seleccionados (se manejan con ++ / --)
+let contadorIda = 0;
+let contadorVuelta = 0;
 
 // ─── 1. CARGA DE DATOS DESDE SESSION STORAGE ────────────────
 
@@ -123,7 +125,7 @@ function configurarMapaAsientos() {
     });
 }
 
-// ─── 4. CHECKBOXES CON LÍMITE POR CANTIDAD DE PASAJEROS ─────
+// ─── 4. CHECKBOXES CON LÍMITE POR CANTIDAD DE PASAJEROS (CONTADOR) ──
 
 function inicializarAsientos() {
     const cantPasajeros = obtenerPasajeros();
@@ -156,7 +158,10 @@ function configurarGrupoAsientos(inputs, arraySeleccion, limite, tramo) {
             const asientoId = this.id.replace(/^(outbound-|lap-)/, "");
 
             if (this.checked) {
-                if (arraySeleccion.length >= limite) {
+                // Tomamos el contador correspondiente al tramo
+                const contadorActual = tramo === "ida" ? contadorIda : contadorVuelta;
+
+                if (contadorActual >= limite) {
                     // Ya llegó al límite: desmarcar y avisar
                     this.checked = false;
                     mostrarError(
@@ -164,8 +169,23 @@ function configurarGrupoAsientos(inputs, arraySeleccion, limite, tramo) {
                     );
                     return;
                 }
+
+                // Incrementamos el contador con ++
+                if (tramo === "ida") {
+                    contadorIda++;
+                } else {
+                    contadorVuelta++;
+                }
+
                 arraySeleccion.push(asientoId);
             } else {
+                // Decrementamos el contador con --
+                if (tramo === "ida") {
+                    contadorIda--;
+                } else {
+                    contadorVuelta--;
+                }
+
                 const idx = arraySeleccion.indexOf(asientoId);
                 if (idx !== -1) arraySeleccion.splice(idx, 1);
             }
@@ -199,7 +219,7 @@ function actualizarResumen() {
     const montoFinal = document.querySelector(".monto-final");
     if (montoFinal) montoFinal.textContent = `US$ ${total.toLocaleString("es-AR")}`;
 
-    // Contador de asientos seleccionados
+    // Contador de asientos seleccionados (usamos contadorIda / contadorVuelta)
     let resumenAsientos = document.getElementById("resumen-asientos");
     if (!resumenAsientos) {
         resumenAsientos = document.createElement("div");
@@ -210,14 +230,14 @@ function actualizarResumen() {
     }
 
     const cantPax = obtenerPasajeros();
-    const textoIda = seleccion.ida.length > 0
-        ? `✔ Asientos ida (${seleccion.ida.length}/${cantPax}): <strong>${seleccion.ida.join(", ")}</strong>`
+    const textoIda = contadorIda > 0
+        ? `✔ Asientos ida (${contadorIda}/${cantPax}): <strong>${seleccion.ida.join(", ")}</strong>`
         : `⚠ Sin asientos de ida seleccionados (0/${cantPax})`;
 
     let textoVuelta = "";
     if (!esSoloIda()) {
-        textoVuelta = seleccion.vuelta.length > 0
-            ? `<br>✔ Asientos vuelta (${seleccion.vuelta.length}/${cantPax}): <strong>${seleccion.vuelta.join(", ")}</strong>`
+        textoVuelta = contadorVuelta > 0
+            ? `<br>✔ Asientos vuelta (${contadorVuelta}/${cantPax}): <strong>${seleccion.vuelta.join(", ")}</strong>`
             : `<br>⚠ Sin asientos de vuelta seleccionados (0/${cantPax})`;
     }
 
@@ -235,12 +255,12 @@ function inicializarBotonContinuar() {
 
         const cantPax = obtenerPasajeros();
 
-        if (seleccion.ida.length < cantPax) {
+        if (contadorIda < cantPax) {
             mostrarError(`Seleccioná ${cantPax} asiento${cantPax > 1 ? "s" : ""} de ida para continuar.`);
             return;
         }
 
-        if (!esSoloIda() && seleccion.vuelta.length < cantPax) {
+        if (!esSoloIda() && contadorVuelta < cantPax) {
             mostrarError(`Seleccioná ${cantPax} asiento${cantPax > 1 ? "s" : ""} de vuelta para continuar.`);
             return;
         }
