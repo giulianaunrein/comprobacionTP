@@ -28,7 +28,7 @@ class MiHeader extends HTMLElement {
               <section class="menu-derecha">
                   <details class="iniciar-sesion">
                       <summary>¡Hola!</summary>
-                      <a href="/index.html" class="cerrar-sesion">Cerrar sesión</a>
+                      <a href="#" id="btn-cerrar-sesion" class="cerrar-sesion">Cerrar sesión</a>
                   </details>
                   <a href="/pages/InicioSesion.html">
                       <img class="usuario" src="/images/usuario.png" alt="usuario" width="30">
@@ -98,3 +98,22 @@ class MiFooter extends HTMLElement {
 // Registramos los componentes en el navegador
 customElements.define('mi-header', MiHeader);
 customElements.define('mi-footer', MiFooter);
+
+// ─── LOGOUT ──────────────────────────────────────────────────
+document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'btn-cerrar-sesion') {
+        e.preventDefault();
+        localStorage.removeItem('usuarioLogueado');
+        sessionStorage.removeItem('redirigirDespuesLogin');
+        window.location.href = '/index.html';
+    }
+});
+
+// ─── MOSTRAR NOMBRE DEL USUARIO EN EL HEADER ─────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    const usuario = JSON.parse(localStorage.getItem('usuarioLogueado'));
+    const summary = document.querySelector('.iniciar-sesion summary');
+    if (summary) {
+        summary.textContent = usuario ? `¡Hola, ${usuario.nombre.split(' ')[0]}!` : '¡Hola!';
+    }
+});
