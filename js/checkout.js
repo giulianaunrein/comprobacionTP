@@ -332,6 +332,74 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     }
 
+    // ─── GUARDAR LA RESERVA PARA QUE APAREZCA EN "MIS RESERVAS" ──
+    function dividirHorario(horario) {
+        // horario viene como "05:30 - 12:45" (o "-" si no hay datos)
+        if (!horario || horario === '-') return { horaSalida: '', horaLlegada: '' };
+        const partes = horario.split('-').map(p => p.trim());
+        return { horaSalida: partes[0] || '', horaLlegada: partes[1] || '' };
+    }
+
+    function extraerCodigo(textoCiudad) {
+        // "París (PAR)" -> "PAR" ; si no hay paréntesis, devuelve el texto tal cual
+        const match = /\(([^)]+)\)/.exec(textoCiudad || '');
+        return match ? match[1] : (textoCiudad || '').slice(0, 3).toUpperCase();
+    }
+
+    function quitarCodigo(textoCiudad) {
+        // "París (PAR)" -> "París"
+        return (textoCiudad || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+    }
+
+    function construirReserva() {
+        const { ida, vuelta } = estado.vuelo;
+        const total = calcularTotal();
+        const horarioIda = dividirHorario(ida.horario);
+
+        const reserva = {
+            origenCiudad: quitarCodigo(ida.origen),
+            destinoCiudad: quitarCodigo(ida.destino),
+            destinoCodigo: extraerCodigo(ida.destino),
+            fechaInicio: ida.fecha,
+            fechaFin: vuelta ? vuelta.fecha : ida.fecha,
+            precio: total,
+            moneda: 'USD',
+            ida: {
+                origenNombre: quitarCodigo(ida.origen),
+                origenCodigo: extraerCodigo(ida.origen),
+                destinoNombre: quitarCodigo(ida.destino),
+                destinoCodigo: extraerCodigo(ida.destino),
+                horaSalida: horarioIda.horaSalida,
+                horaLlegada: horarioIda.horaLlegada,
+                duracion: '',
+                fecha: ida.fecha
+            },
+            vuelta: null
+        };
+
+        if (vuelta) {
+            const horarioVuelta = dividirHorario(vuelta.horario);
+            reserva.vuelta = {
+                origenNombre: quitarCodigo(vuelta.origen),
+                origenCodigo: extraerCodigo(vuelta.origen),
+                destinoNombre: quitarCodigo(vuelta.destino),
+                destinoCodigo: extraerCodigo(vuelta.destino),
+                horaSalida: horarioVuelta.horaSalida,
+                horaLlegada: horarioVuelta.horaLlegada,
+                duracion: '',
+                fecha: vuelta.fecha
+            };
+        }
+
+        return reserva;
+    }
+
+    function guardarReserva() {
+        const reservasGuardadas = JSON.parse(localStorage.getItem('reservasGuardadas')) || [];
+        reservasGuardadas.push(construirReserva());
+        localStorage.setItem('reservasGuardadas', JSON.stringify(reservasGuardadas));
+    }
+
     // BOTÓN PAGAR
     document.getElementById('btn-pagar').addEventListener('click', function () {
         if (!validarDatosPasajero()) {
@@ -339,6 +407,10 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         if (!validarMetodoPago()) return;
+
+        guardarReserva();
+        sessionStorage.removeItem('vueloSeleccionado'); // evita duplicar la reserva si vuelve atrás
+
         window.location.href = 'MiCuenta.html';
     });
 
