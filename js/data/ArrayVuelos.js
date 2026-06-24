@@ -1,4 +1,3 @@
-
 export const vuelos = [
     {
         id: 1,
@@ -455,11 +454,10 @@ const ORIGENES_VALIDOS = [
 ];
 
 // Devuelve true si el texto ingresado como origen corresponde a Buenos Aires.
-// Si el campo viene vacío, se considera válido (no filtramos por algo que
-// el usuario no completó).
+// Si el campo viene vacío, se considera inválido para forzar al usuario a ingresar un origen.
 function esOrigenValido(textoOrigen) {
     const norm = normalizar(textoOrigen);
-    if (!norm) return true;
+    if (!norm) return false;
     return ORIGENES_VALIDOS.some(o => norm.includes(o) || o.includes(norm));
 }
 

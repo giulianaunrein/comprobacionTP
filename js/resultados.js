@@ -259,6 +259,60 @@ function actualizarPreciosConEquipaje() {
 
 // ─── INICIALIZACIÓN ──────────────────────────────────────────
 
+function inicializarBotonBuscar() {
+    const boton = document.querySelector(".vuelos .buscar");
+    if (!boton) return;
+
+    boton.addEventListener("click", () => {
+        const inputOrigen      = document.querySelector(".contenedor-viaje .origenydestino:first-child input");
+        const inputDestino     = document.querySelector(".contenedor-viaje .origenydestino:last-child input");
+        const inputFechaIda    = document.querySelector(".contenedor-fechas .fecha:first-child input");
+        const inputFechaVuelta = document.querySelector(".contenedor-fechas .fecha:last-child input");
+        const inputPasajeros   = document.getElementById("passengers");
+        const selectClase      = document.getElementById("select-clase");
+
+        // Determinar tipo de vuelo según botón activo
+        const botones    = document.querySelectorAll(".tipo-vuelo button");
+        const esSoloIda  = botones[1]?.classList.contains("activo");
+        const tipoVuelo  = esSoloIda ? "Solo ida" : "Ida y vuelta";
+
+        const nuevaBusqueda = {
+            origen:      inputOrigen?.value.trim()  || "",
+            destino:     inputDestino?.value.trim() || "",
+            fechaIda:    inputFechaIda?.value        || "",
+            fechaVuelta: esSoloIda ? "" : (inputFechaVuelta?.value || ""),
+            pasajeros:   inputPasajeros?.value       || "1",
+            clase:       selectClase?.value          || "Económica",
+            tipoVuelo
+        };
+
+        sessionStorage.setItem("busquedaVuelo", JSON.stringify(nuevaBusqueda));
+
+        // Re-renderizar y re-aplicar filtros
+        const contenedor = document.querySelector(".opciones-vuelos");
+        if (contenedor) contenedor.innerHTML = "";
+        renderizarVuelos();
+        aplicarFiltros();
+        inicializarBotonesComprar();
+    });
+
+    // Botones Ida y vuelta / Solo ida: toggle estado activo y deshabilitar fecha vuelta
+    const botones = document.querySelectorAll(".tipo-vuelo button");
+    const inputFechaVuelta = document.querySelector(".contenedor-fechas .fecha:last-child input");
+    botones.forEach((btn, idx) => {
+        btn.addEventListener("click", () => {
+            botones.forEach(b => b.classList.remove("activo"));
+            btn.classList.add("activo");
+            const esSoloIda = idx === 1;
+            if (inputFechaVuelta) {
+                inputFechaVuelta.disabled      = esSoloIda;
+                inputFechaVuelta.style.opacity = esSoloIda ? "0.5" : "1";
+                if (esSoloIda) inputFechaVuelta.value = "";
+            }
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     precargarFormularioBusqueda();
     renderizarVuelos();          // genera las tarjetas en el DOM
@@ -266,4 +320,5 @@ document.addEventListener("DOMContentLoaded", () => {
     inicializarRangoPrecio();
     aplicarFiltros();
     inicializarBotonesComprar(); // debe ir DESPUÉS de renderizarVuelos para que las tarjetas ya existan
+    inicializarBotonBuscar();    // habilita el botón Buscar del panel lateral
 });
