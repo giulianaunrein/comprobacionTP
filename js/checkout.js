@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Lee de sessionStorage (puesto por detalleVuelo.js)
     const vueloGuardado = JSON.parse(sessionStorage.getItem("vueloSeleccionado"));
-
+    const vueloGuardado = JSON.parse(sessionStorage.getItem("vueloSeleccionado"));
+console.log("VUELO GUARDADO:", vueloGuardado);
     // Adapta la estructura del objeto al formato que usa el checkout
     function adaptarVuelo(v) {
         if (!v) return null;
