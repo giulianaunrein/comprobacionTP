@@ -512,9 +512,17 @@ function generarVuelosParaDestino(destinoObj, cantidad) {
     const codigo = obtenerCodigo(destinoObj.destino);
     const vuelosGenerados = [];
 
+    const opcionesEquipaje = [
+        ["personal"],
+        ["personal", "mano"],
+        ["personal", "mano", "bodega"],
+        ["personal", "bodega"],
+    ];
+
     for (let i = 0; i < cantidad; i++) {
         const aerolinea = aerolineas[Math.floor(Math.random() * aerolineas.length)];
         const precio = Math.round(destinoObj.precio * (0.9 + Math.random() * 0.45));
+        const equipaje = opcionesEquipaje[Math.floor(Math.random() * opcionesEquipaje.length)];
 
         const idaSalida  = horarioAleatorio();
         const idaInfo    = generarDuracionYTipo(destinoObj.tipo);
@@ -533,6 +541,7 @@ function generarVuelosParaDestino(destinoObj, cantidad) {
             aerolinea: aerolinea.nombre,
             logo: aerolinea.logo,
             claveAerolinea: aerolinea.clave,
+            equipaje,
             ida: {
                 origenCiudad: ORIGEN_DEFAULT.codigo,
                 destinoCiudad: codigo,
@@ -573,7 +582,11 @@ export function obtenerVuelosPorDestino(textoDestino, cantidad = 6, textoOrigen 
 
 // ─── RENDERIZADO PARA RESULTADOS (búsqueda desde index) ─────
 
-function crearFilaTramo(etiqueta, tramo, logo, nombreAerolinea) {
+function crearFilaTramo(etiqueta, tramo, logo, nombreAerolinea, equipaje = []) {
+    const mochila = equipaje.includes("personal") ? "MOCHILA-color" : "MOCHILA";
+    const valija  = equipaje.includes("mano")     ? "VALIJA-color"  : "VALIJA";
+    const maleta  = equipaje.includes("bodega")   ? "MALETA-color"  : "MALETA";
+
     return `
         <div class="fila">
             <div class="aerolinea">
@@ -595,9 +608,9 @@ function crearFilaTramo(etiqueta, tramo, logo, nombreAerolinea) {
                 <span class="ciudad">${tramo.destinoCiudad}</span>
             </div>
             <div class="icono-servicio">
-                <img src="../images/MOCHILA-color.svg" class="mochila">
-                <img src="../images/VALIJA-color.svg"  class="valija">
-                <img src="../images/MALETA-color.svg"  class="maleta">
+                <img src="../images/${mochila}.svg" class="mochila">
+                <img src="../images/${valija}.svg"  class="valija">
+                <img src="../images/${maleta}.svg"  class="maleta">
             </div>
         </div>`;
 }
@@ -607,7 +620,7 @@ function crearTarjetaVuelo(vuelo, esIdaYVuelta) {
     const claveEscala = obtenerClaveEscala(vuelo.ida.tipoVuelo);
 
     const filaVuelta = esIdaYVuelta
-        ? crearFilaTramo("VUELTA", vuelo.vuelta, vuelo.logo, vuelo.aerolinea)
+        ? crearFilaTramo("VUELTA", vuelo.vuelta, vuelo.logo, vuelo.aerolinea, vuelo.equipaje)
         : "";
 
     return `
@@ -617,7 +630,7 @@ function crearTarjetaVuelo(vuelo, esIdaYVuelta) {
              data-aerolinea="${vuelo.claveAerolinea}"
              data-escalas="${claveEscala}">
             <div class="informacion">
-                ${crearFilaTramo("IDA", vuelo.ida, vuelo.logo, vuelo.aerolinea)}
+                ${crearFilaTramo("IDA", vuelo.ida, vuelo.logo, vuelo.aerolinea, vuelo.equipaje)}
                 ${filaVuelta}
             </div>
             <div class="precio">
