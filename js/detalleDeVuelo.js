@@ -62,11 +62,13 @@ function cargarInfoVuelo() {
     const duracionIda = tramoIda.querySelector(".duracion-mini");
     if (duracionIda) duracionIda.textContent = datoVuelo.ida.duracion;
 
+    const claseTexto = (busqueda && busqueda.clase) ? busqueda.clase : "Economy";
     const listaIda = tramoIda.querySelectorAll("ul li");
     if (listaIda.length >= 4) {
         listaIda[0].innerHTML = `<img class="chico icono-vuelo" src="../images/calendario.svg"> ${datoVuelo.ida.fecha || ""}`;
         listaIda[1].innerHTML = `<img class="chico icono-vuelo" src="../images/tiempo.svg"> Duración: ${datoVuelo.ida.duracion}`;
         listaIda[3].innerHTML = `<img class="chico icono-vuelo" src="${datoVuelo.aerolineaLogo}"> ${datoVuelo.aerolineaNombre}`;
+        if (listaIda[4]) listaIda[4].innerHTML = `<img class="chico icono-vuelo" src="../images/ticket.svg"> ${claseTexto}`;
     }
 
     // ── VUELTA (solo si no es solo ida) ──
@@ -99,6 +101,7 @@ function cargarInfoVuelo() {
                 listaVuelta[0].innerHTML = `<img class="chico icono-vuelo" src="../images/calendario.svg"> ${datoVuelo.vuelta.fecha || ""}`;
                 listaVuelta[1].innerHTML = `<img class="chico icono-vuelo" src="../images/tiempo.svg"> Duración: ${datoVuelo.vuelta.duracion}`;
                 listaVuelta[3].innerHTML = `<img class="chico icono-vuelo" src="${datoVuelo.aerolineaLogo}"> ${datoVuelo.aerolineaNombre}`;
+                if (listaVuelta[4]) listaVuelta[4].innerHTML = `<img class="chico icono-vuelo" src="../images/ticket.svg"> ${claseTexto}`;
             }
         }
     }
