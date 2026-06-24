@@ -99,8 +99,13 @@ function renderizarReservas(listaReservas) {
 // Punto de entrada
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Reservas hechas realmente por el usuario en el checkout (persisten en localStorage)
-    const reservasGuardadas = JSON.parse(localStorage.getItem("reservasGuardadas")) || [];
+    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
+    if (!usuarioLogueado) {
+        renderizarReservas([]);
+        return;
+    }
+
+    const reservasGuardadas = JSON.parse(localStorage.getItem("reservasGuardadas")) || [];
     renderizarReservas(reservasGuardadas);
 });
