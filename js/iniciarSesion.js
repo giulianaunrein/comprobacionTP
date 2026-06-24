@@ -1,27 +1,53 @@
-const form = document.getElementById("formLogin");
+const boton = document.getElementById("boton");
 const mensaje = document.getElementById("mensaje");
 
-form.addEventListener("submit", (e) => {
+boton.addEventListener("click", (e)=>{
   e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("contrasenia").value;
+  let errores = "";
 
-  const email = document.getElementById("email").value.trim();
-  const pass = document.getElementById("contrasenia").value.trim();
+  if(!validarEmail(email))
+    errores = "email invalido ";
 
-  mensaje.textContent = "";
+  if(!validarContrasenia(password))
+    errores += "La contraseña debe tener al menos 6 caracteres";
 
-  if (!email || !pass) {
-    mensaje.textContent = "❌ Completá todos los campos";
+  if(errores !== ""){
+        mensaje.textContent = errores; 
+        mensaje.style.color ="red";
+        return;
+    }    
+  
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  const existeUsuario = usuarios.find(u => u.email === email);
+  if(!existeUsuario){
+    mensaje.textContent ="cuenta inexistente";
+    mensaje.style.color="red";
     return;
   }
 
-  if (pass.length < 6) {
-    mensaje.textContent = "❌ La contraseña debe tener al menos 6 caracteres";
+  if(existeUsuario.password !== password){
+    mensaje.textContent = "Contraseña incorrecta";
+    mensaje.style.color = "red";
     return;
   }
 
-  localStorage.setItem("usuario", email);
+  localStorage.setItem("usuarioLogueado", JSON.stringify(existeUsuario));
 
-  mensaje.style.color = "green";
-  mensaje.textContent = "✔ Ingresando...";
+mensaje.textContent = "Inicio de sesión exitoso";
+mensaje.style.color = "green";
 
-});
+setTimeout(() => {
+    window.location.href = "../index.html";
+}, 1500);
+
+})
+
+function validarEmail(email){
+    return  email.includes("@") && email.includes(".");
+}
+
+function validarContrasenia(password){
+    return password.length >= 6;
+}
