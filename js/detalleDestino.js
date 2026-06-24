@@ -12,7 +12,7 @@ let vuelosDestino = [];
 function crearTarjetaVuelo(vuelo, numero, index) {
     const tipoEscalas = vuelo.escalas ? "1 Escala" : "Directo";
     const codigoDestino = vuelo.codigo || "DST";
-    const clase = vuelo.clase || "Economy";
+    const clase = vuelo.clase || "Economica";
     const equipaje = vuelo.equipajeIncluido || "Mochila";
 
     let iconosEquipaje = `<img src="../images/MOCHILA-color.svg" class="mochila" title="Mochila">`;
