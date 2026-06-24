@@ -204,10 +204,14 @@ function aplicarFiltros() {
         const aerolinea = t.dataset.aerolinea;
         const escalas   = t.dataset.escalas;
 
+        const cumpleEquipaje = filtros.equipaje.size === 0
+            || [...filtros.equipaje].every(tipo => tarjetaIncluyeEquipaje(t, tipo));
+
         const visible =
             precio <= filtros.precioMax &&
             (filtros.escalas.size    === 0 || filtros.escalas.has(escalas)) &&
-            (filtros.aerolineas.size === 0 || filtros.aerolineas.has(aerolinea));
+            (filtros.aerolineas.size === 0 || filtros.aerolineas.has(aerolinea)) &&
+            cumpleEquipaje;
 
         t.style.display = visible ? "" : "none";
         if (visible) visibles++;
