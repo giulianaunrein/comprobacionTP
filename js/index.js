@@ -5,6 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form) return;
 
+  // --- Bloquear fechas pasadas---
+  const hoy = new Date().toISOString().split("T")[0];
+  document.getElementById("fecha-ida").min = hoy;
+  document.getElementById("fecha-vuelta").min = hoy;
+
+  // Cuando cambia fecha de ida, la vuelta no puede ser anterior
+  document.getElementById("fecha-ida").addEventListener("change", function () {
+    if (inputVuelta) {
+      inputVuelta.min = this.value || hoy;
+    }
+  });
+  
   // --- 1. Lógica para bloquear/desbloquear fecha de vuelta ---
   const radioTipos = form.querySelectorAll('input[name="tipo"]');
 
